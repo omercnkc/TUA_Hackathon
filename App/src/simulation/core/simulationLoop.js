@@ -12,10 +12,12 @@ import { updatePosition } from "../physics/position";
 import { updateFuel } from "../systems/fuelSystem";
 import { calculateThrust } from "../systems/thurustSystem";
 import { logState, getHistory } from "../telemetry/dataLogger";
+import { detectEvents } from "../events/eventDetector";
 
 const MAX_HEIGHT = 100_000; // 100 km — Kármán çizgisi
 
 export function stepSimulation(state) {
+  const prevState = { ...state };
   let newState = { ...state };
 
   switch (newState.state) {
@@ -34,6 +36,7 @@ export function stepSimulation(state) {
       }
 
       logState(newState); // throttled — her 10 frame'de 1
+      newState.events = detectEvents(prevState, newState, newState.events || []);
       return newState;
     }
 
@@ -61,6 +64,7 @@ export function stepSimulation(state) {
       newState.time        += DT;
 
       logState(newState);
+      newState.events = detectEvents(prevState, newState, newState.events || []);
 
       if (fuel <= 0) newState.state = "burnout";
       return newState;
@@ -81,6 +85,7 @@ export function stepSimulation(state) {
       newState.time        += DT;
 
       logState(newState);
+      newState.events = detectEvents(prevState, newState, newState.events || []);
 
       if (newState.height <= 0) newState.state = "idle";
       return newState;

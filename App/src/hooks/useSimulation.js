@@ -56,6 +56,7 @@ export function useSimulation() {
     startCountdown,
     resetSimulation,
     applySettings,
-    history: state.history || []
+    history: state.history || [],
+    events: state.events || [],
   };
 }

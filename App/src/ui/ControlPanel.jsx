@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { simulationPresets } from "../simulation/core/presets";
 
 export default function ControlPanel({
@@ -14,21 +14,8 @@ export default function ControlPanel({
     dragCoefficient: state.dragCoefficient
   });
 
-  useEffect(() => {
-    setForm({
-      fuel: state.fuel,
-      mass: state.mass,
-      thrust: state.thrust,
-      burnRate: state.burnRate,
-      dragCoefficient: state.dragCoefficient
-    });
-  }, [
-    state.fuel,
-    state.mass,
-    state.thrust,
-    state.burnRate,
-    state.dragCoefficient
-  ]);
+
+
 
   const handleChange = (key, value) => {
     setForm((prev) => ({

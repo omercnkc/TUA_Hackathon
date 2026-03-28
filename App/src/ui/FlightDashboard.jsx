@@ -24,6 +24,17 @@ export default function FlightDashboard({ state, analysis, history }) {
         </div>
       )}
 
+      {state.events && state.events.length > 0 && (
+        <div style={{ marginTop: "16px" }}>
+          <h3>Flight Events</h3>
+          {state.events.map((e, i) => (
+            <div key={i}>
+              {e.type.toUpperCase()} — t={e.time.toFixed(2)}s — h={e.height.toFixed(2)}m
+            </div>
+          ))}
+        </div>
+      )}
+
       <TelemetryChart
         data={history}
         dataKey="height"
