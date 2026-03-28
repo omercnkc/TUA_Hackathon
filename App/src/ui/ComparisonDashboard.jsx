@@ -1,5 +1,6 @@
 import React from "react";
 import { compareRuns } from "../simulation/comparison/compareRuns";
+import ComparisonChart from "./ComparisonChart";
 
 function formatDiff(value, unit) {
   const sign = value > 0 ? "+" : "";
@@ -68,6 +69,20 @@ export default function ComparisonDashboard({ runs }) {
         <div>Max Velocity: {formatDiff(comparison.maxVelocityDiff, "m/s")}</div>
         <div>Flight Time: {formatDiff(comparison.flightTimeDiff, "s")}</div>
       </div>
+
+      <ComparisonChart
+        runA={previousRun}
+        runB={currentRun}
+        dataKey="height"
+        title="Height Comparison"
+      />
+
+      <ComparisonChart
+        runA={previousRun}
+        runB={currentRun}
+        dataKey="velocity"
+        title="Velocity Comparison"
+      />
     </div>
   );
 }
