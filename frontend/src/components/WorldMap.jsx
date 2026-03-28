@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
-import { MapContainer, Marker, Popup, TileLayer, Tooltip, useMapEvents } from 'react-leaflet'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { MapContainer, Marker, Popup, TileLayer, Tooltip, useMap, useMapEvents } from 'react-leaflet'
 import L from 'leaflet'
 import { fetchSpaceBases } from '../services/api'
 import { LoadingSpinner } from './LoadingSpinner'
@@ -22,6 +22,15 @@ function MapClickHandler({ onSelectBase }) {
   return null
 }
 
+function FlyToController({ target }) {
+  const map = useMap()
+  useEffect(() => {
+    if (!target) return
+    map.flyTo([target.lat, target.lng], target.zoom ?? 10, { duration: 1.6 })
+  }, [target, map])
+  return null
+}
+
 function createIcon(selected) {
   return L.divIcon({
     className: '',
@@ -39,6 +48,69 @@ function createIcon(selected) {
   })
 }
 
+function MapSearch() {
+  const [query, setQuery] = useState('')
+  const [searching, setSearching] = useState(false)
+  const [error, setError] = useState('')
+  const [flyTarget, setFlyTarget] = useState(null)
+  const inputRef = useRef(null)
+
+  const handleSearch = async (e) => {
+    e.preventDefault()
+    const q = query.trim()
+    if (!q) return
+    setSearching(true)
+    setError('')
+    try {
+      const res = await fetch(
+        `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q)}&format=json&limit=1`,
+        { headers: { 'Accept-Language': 'tr,en' } }
+      )
+      const data = await res.json()
+      if (!data.length) { setError('Konum bulunamadı.'); return }
+      setFlyTarget({ lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon), zoom: 12 })
+      setQuery('')
+    } catch {
+      setError('Arama başarısız.')
+    } finally {
+      setSearching(false)
+    }
+  }
+
+  return (
+    <>
+      <FlyToController target={flyTarget} />
+      <form
+        onSubmit={handleSearch}
+        className="absolute left-1/2 top-4 z-[20] -translate-x-1/2 flex w-[min(90vw,420px)] items-center gap-2"
+      >
+        <div className="relative flex-1">
+          <span className="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-lg text-white/50">
+            search
+          </span>
+          <input
+            ref={inputRef}
+            value={query}
+            onChange={(e) => { setQuery(e.target.value); setError('') }}
+            placeholder="Ülke veya şehir ara…"
+            className="w-full rounded-full border border-white/10 bg-[#0a0a0f]/80 py-2.5 pl-10 pr-4 text-sm text-white placeholder-white/30 backdrop-blur-md outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/30"
+          />
+          {error && (
+            <p className="absolute -bottom-6 left-3 text-xs text-red-400">{error}</p>
+          )}
+        </div>
+        <button
+          type="submit"
+          disabled={searching}
+          className="flex items-center gap-1.5 rounded-full border border-cyan-400/30 bg-[#0a0a0f]/80 px-4 py-2.5 text-sm font-semibold text-cyan-300 backdrop-blur-md transition-colors hover:border-cyan-400/60 hover:text-cyan-200 disabled:opacity-50"
+        >
+          {searching ? <LoadingSpinner size="sm" /> : 'Git'}
+        </button>
+      </form>
+    </>
+  )
+}
+
 export function WorldMap({ onSelectBase, selectedBase }) {
   const [bases, setBases] = useState(null)
 
@@ -52,9 +124,7 @@ export function WorldMap({ onSelectBase, selectedBase }) {
         if (!cancelled) setBases([])
       }
     })()
-    return () => {
-      cancelled = true
-    }
+    return () => { cancelled = true }
   }, [])
 
   const center = useMemo(() => {
@@ -84,18 +154,19 @@ export function WorldMap({ onSelectBase, selectedBase }) {
               center={center}
               zoom={2}
               minZoom={1}
-              maxZoom={10}
+              maxZoom={19}
               scrollWheelZoom
               className="hero-map-frame !absolute inset-0 z-0 h-full w-full [&_.leaflet-control-attribution]:rounded [&_.leaflet-control-attribution]:text-[9px] [&_.leaflet-control-attribution]:opacity-50"
               style={{ background: '#060608' }}
             >
               <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://stadia.com">Stadia Maps</a>'
-                url="https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.jpg"
+                attribution='Tiles &copy; Esri &mdash; Source: Esri, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP'
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
                 minZoom={1}
-                maxZoom={10}
+                maxZoom={19}
               />
               <MapClickHandler onSelectBase={onSelectBase} />
+              <MapSearch />
               {showMarkers &&
                 bases.map((b) => {
                   const isSelected = selectedBase?.id === b.id
@@ -105,7 +176,10 @@ export function WorldMap({ onSelectBase, selectedBase }) {
                       position={[b.lat, b.lng]}
                       icon={createIcon(isSelected)}
                       eventHandlers={{
-                        click: () => onSelectBase?.(isSelected ? null : b),
+                        click: (e) => {
+                          e.originalEvent?.stopPropagation()
+                          onSelectBase?.(isSelected ? null : b)
+                        },
                       }}
                     >
                       <Tooltip
@@ -134,25 +208,13 @@ export function WorldMap({ onSelectBase, selectedBase }) {
         {mapReady && (
           <>
             <div className="hero-map-aurora pointer-events-none absolute inset-0 z-[4]" aria-hidden />
-            <div
-              className="hero-map-tech-grid pointer-events-none absolute inset-0 z-[5] opacity-85"
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute inset-0 z-[6] bg-gradient-to-br from-[#0e0e10]/55 via-transparent to-primary/10"
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute inset-0 z-[6] bg-gradient-to-r from-[#0a0a0f]/9 via-transparent to-[#0e0e10]/45"
-              aria-hidden
-            />
+            <div className="hero-map-tech-grid pointer-events-none absolute inset-0 z-[5] opacity-85" aria-hidden />
+            <div className="pointer-events-none absolute inset-0 z-[6] bg-gradient-to-br from-[#0e0e10]/55 via-transparent to-primary/10" aria-hidden />
+            <div className="pointer-events-none absolute inset-0 z-[6] bg-gradient-to-r from-[#0a0a0f]/9 via-transparent to-[#0e0e10]/45" aria-hidden />
             <div className="map-container-fade pointer-events-none absolute inset-0 z-[7] opacity-90" aria-hidden />
             <div className="hero-map-vignette z-[8]" aria-hidden />
             <div className="hero-map-scanlines z-[9]" aria-hidden />
-            <div
-              className="hero-map-edge-shimmer pointer-events-none absolute left-6 right-6 top-0 z-[11] md:left-10 md:right-10"
-              aria-hidden
-            />
+            <div className="hero-map-edge-shimmer pointer-events-none absolute left-6 right-6 top-0 z-[11] md:left-10 md:right-10" aria-hidden />
 
             {selectedBase && (
               <div className="pointer-events-none absolute bottom-6 left-1/2 z-[12] -translate-x-1/2">

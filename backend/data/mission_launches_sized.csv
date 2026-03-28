@@ -1,0 +1,783 @@
+Organisation;Location;Detail;Rocket_Status;Mission_Status;Propellant;Thrust;Payload_to_LEO;Dry_Mass;Size
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 5 | Starlink V1 L9 & BlackSky;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | Gaofen-9 04 & Q-SAT;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 541 | Perseverance;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 4B | Ziyuan-3 03, Apocalypse-10 & NJU-HKU 1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Roscosmos;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz 2.1a | Progress MS-15;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-101, Wenchang Satellite Launch Center, China;Long March 5 | Tianwen-1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | ANASIS-II;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3B/E | Apstar-6D;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | Shiyan-6 02;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 4B | Gaofen Duomo & BY-02;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | GPS III SV03;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/E | Beidou-3 G3;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | Gaofen-9 03, Pixing III A & HEAD-5;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | Starlink V1 L8 & SkySat 16 to 18;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 2C | Haiyang-1D;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | Starlink V1 L7;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | Gaofen-9-02 & HEAD-4;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 5 | SpaceX Demo-2;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;Xichang Satellite Launch Center, China;Long March 11 | XJS-G and XJS-H;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+VKS RF;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1b/Fregat-M | Cosmos 2546;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 501 | OTV-6 (USSF-7);StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+CASC;LC-101, Wenchang Satellite Launch Center, China;Long March 5B | Test Flight (New Crew Capsule);StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Roscosmos;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz 2.1a | Progress MS-14;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 5 | Starlink V1 L6;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/E | Nusantara Dua;StatusActive;Failure;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Roscosmos;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz 2.1a | Soyuz MS-16;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 551 | AEHF 6;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 2C | Yaogan-30-06;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz 2.1b/Fregat | OneWeb #3;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 5 | Starlink V1 L5;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+VKS RF;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1b/Fregat-M | Cosmos 2545;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-201, Wenchang Satellite Launch Center, China;Long March 7A | XJY-6;StatusActive;Failure;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/E | Beidou-3 G2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | CRS-20;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+VKS RF;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz 2.1a/Fregat-M | Meridian-M nâ Â­19L;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 2D | XJS-C to F;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | JCSAT-17 & GEO-KOMPSAT 2B;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | Starlink V1 L4;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 411 | Solar Orbiter;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz 2.1b/Fregat | OneWeb #2;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | Starlink V1 L3;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 5 | Crew Dragon Inflight Abort Test;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Eutelsat Konnect BB4A & GSAT-30;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 2D | Jilin-1 Wideband 01 & ??uSat-7/8;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/E | TJSW-5;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | Starlink V1 L2;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-101, Wenchang Satellite Launch Center, China;Long March 5 | Shijian-20;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V N22 | Starliner OFT;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 4B | CBERS-4A, ETRSS-1 & Others;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-A/Fregat-M | CSG-1, CHEOPS & Others;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | JCSAT-18 / Kacific-1;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3B/YZ-1 | BeiDou-3 M19 & M20;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+VKS RF;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz 2.1b/Fregat | Cosmos 2544;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Roscosmos;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz 2.1a | Progress MS-13 (74P);StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | CRS-19;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 4C | Gaofen-12;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Inmarsat 5 F5 & TIBA-1;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+VKS RF;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1v/Volga | Cosmos 2542 & 2543;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3B/YZ-1 | BeiDou-3 M21 & M22;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-16, Taiyuan Satellite Launch Center, China;Long March 6 | Ningxia-1 (x5);StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | Starlink V1 L1;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/E | Beidou-3 IGSO-3;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 4B | Gaofen-7;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3B/E | TJSW-4;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 4C | Gaofen 10 (Replacement);StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+VKS RF;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1b/Fregat | Cosmos 2541;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Roscosmos;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz FG | Soyuz MS-15 (61S);StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | Yunhai-1-02;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/YZ-1 | BeiDou-3 M23 & M24;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 95, Jiuquan Satellite Launch Center, China;Long March 11 | Zhuhai-1 Group 03;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 4B | Ziyuan-2D, BNU-1 & Taurus-1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Roscosmos;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz 2.1a | Soyuz MS-14 (60S);StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/E | ChinaSat 18;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 551 | AEHF 5;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | AMOS-17;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | EDRS-C/HYLAS 3 & Intelsat 39;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Roscosmos;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz 2.1a | Progress MS-12;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+VKS RF;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1a/Fregat-M | Meridian-M nâ Â­18L;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 2C | Yaogan-30-05;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | CRS-18;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Roscosmos;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz FG | Soyuz MS-13 (59S);StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+VKS RF;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1v/Volga | Cosmos 2535 to 2538;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Roscosmos;Site 1S, Vostochny Cosmodrome, Russia;Soyuz 2.1b/Fregat-M | Meteor-M No.2-2, Landmapper-BC 5 & 6, and Others;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon Heavy | STP-2;StatusActive;Success;RP-1/LOX;22,819 kN;63,800 kg;1,420,000 kg;2
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3B/E | Beidou-3 IGSO-2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Eutelsat 7C &  AT&T T-16;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+SpaceX;SLC-4E, Vandenberg AFB, California, USA;Falcon 9 Block 5 | RADARSAT Constellation;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;Tai Rui Barge, Yellow Sea;Long March 11H | Jilin-1 & Others;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Roscosmos;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1b/Fregat-M | Cosmos 2534;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | Starlink V0.9;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 4C | Yaogan Weixing-33;StatusActive;Failure;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3C/E | Beidou-2 G8;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | CRS-17;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;Taiyuan Satellite Launch Center, China;Long March 4B | Tianhui-2 Group 01;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3B/E | Beidou-3 IGSO-1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon Heavy | ArabSat 6A;StatusActive;Success;RP-1/LOX;22,819 kN;63,800 kg;1,420,000 kg;2
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-B/Fregat-MT | O3b FM17-FM20;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Roscosmos;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz 2.1a | Progress MS-11 (72P);StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/E | Tianlian-2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Roscosmos;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz FG | Soyuz MS-12 (58S);StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3B/E | Zhongxing-6C;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 5 | SpaceX Demo-1;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-B/Fregat-M | OneWeb #1;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | Nusantara Satu & Beresheet;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+VKS RF;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz 2.1b/Fregat-M | EgyptSat-A;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | GSAT-31 & Hellas-Sat-4;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;Site 95, Jiuquan Satellite Launch Center, China;Long March 11 | Jilin-1 Hyperspectral & Others;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-4E, Vandenberg AFB, California, USA;Falcon 9 Block 5 | Iridium-8;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/E | Zhongxing-2D (Chinasat-2D);StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D/YZ-3 | Hongyan-1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Roscosmos;Site 1S, Vostochny Cosmodrome, Russia;Soyuz 2.1a/Fregat | Kanopus-V No. 5-6 & Rideshares;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3C/E | TJS-3;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | GPS III SV01;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;Site 95, Jiuquan Satellite Launch Center, China;Long March 11 | Hongyun-1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-A/Fregat-M | CSO 1;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/E | Chang'e-4;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | SaudiSAT 5A, & 5B and Others;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | CRS-16;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | GSAT-11 & GEO-KOMPSAT 2A;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+SpaceX;SLC-4E, Vandenberg AFB, California, USA;Falcon 9 Block 5 | Spaceflight SSO-A;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Roscosmos;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz FG | Soyuz MS-11 (57S);StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | Shiyan-6, Jiading-1 (OKW-01), & Others;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3B/YZ-1 | BeiDou-3 M17 & M18;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Roscosmos;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz FG | Progress MS-10 (71P);StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 5 | Es'hail 2;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-B/Fregat-M | MetOp C;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+VKS RF;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1b/Fregat | GLONASS-M No.54S;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/E | Beidou-3 G1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2C | CFOSAT, Zhaojin-1, Hongyan-1, & Others;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Roscosmos;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1b | Lotus-S No.4;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 4B | Haiyang-2B;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | BepiColombo;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 551 | AEHF-4;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3B/YZ-1 | BeiDou-3 M15 & M16;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Roscosmos;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz FG | Soyuz MS-10 (56S);StatusRetired;Failure;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2C | Yaogan-32 Group 01;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-4E, Vandenberg AFB, California, USA;Falcon 9 Block 5 | SAOCOM 1A;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Horizons-3e & Azerspace 2/Intelsat 38;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/YZ-1 | BeiDou-3 M13 & M14;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | Telstar 18V / APStar 5C;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;Taiyuan Satellite Launch Center, China;Long March 2C | Haiyang 1C (HY-1C);StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3B/YZ-1 | BeiDou-3 M11 & M12;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | Merah Putih (Telkom-4);StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 4B | Gaofen 11;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3B/YZ-1 | BeiDou-3 M5 & M6;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-4E, Vandenberg AFB, California, USA;Falcon 9 Block 5 | Iridium-7;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ES | Galileo FOC FM19-FM22;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 5 | Telstar 19V;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Roscosmos;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz 2.1a | Progress MS-09 (70P);StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3A | BeiDou-2 I7;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2C | PRSS-1 & PakTES-1A;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 4 | CRS-15;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 2C | XJSS A & B;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+VKS RF;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1b/Fregat-M | GLONASS-M No.53S;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Roscosmos;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz FG | Soyuz MS-09 (55S);StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3A | Fengyun 2H;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 4 | SES-12;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | Gaofen 6 & Luojia 1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-4E, Vandenberg AFB, California, USA;Falcon 9 Block 4 | Iridium-6 & GRACE-FO;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 4C | Queqiao, Longjiang 1 & 2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 5 | Bangabandhu-1;StatusActive;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 4C | Gaofen 5;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ULA;SLC-3E, Vandenberg AFB, California, USA;Atlas V 401 | InSight;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/E | Apstar 6C;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 95, Jiuquan Satellite Launch Center, China;Long March 11 | Zhuhai-1 2A to 2D;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 4 | Transiting Exoplanet Survey Satellite (TESS);StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 551 | AFSPC-11;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 4C | Yaogan 31 A, B, & C;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Superbird-B3/DSN-1 & HYLAS-4;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 4 | CRS-14;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 4C | Gaofen-1 02-04;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-4E, Vandenberg AFB, California, USA;Falcon 9 Block 4 | Iridium-5;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/YZ-1 | BeiDou-3 M9 & M10;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Roscosmos;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1v | Cosmos 2525;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Roscosmos;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz FG | Soyuz MS-08 (54S);StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | LKW-4;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-B/Fregat-MT | O3b FM13-FM16;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 4 | Hispasat 30W-6;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 541 | GOES-S (GOES-17);StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+SpaceX;SLC-4E, Vandenberg AFB, California, USA;Falcon 9 Block 3 | PAZ & Tintin A, Tintin B;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Roscosmos;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz 2.1a | Progress MS-08 (69P);StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/YZ-1 | BeiDou-3 M3 & M4;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon Heavy | Test Flight;StatusActive;Success;RP-1/LOX;22,819 kN;63,800 kg;1,420,000 kg;2
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | CSES & Rideshares;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Roscosmos;Site 1S, Vostochny Cosmodrome, Russia;Soyuz 2.1a/Fregat-M | Kanopus-V No. 3-4 & Rideshares;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 3 | GovSat-1 / SES-16;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | SES-14/GOLD & Al Yah-3;StatusActive;Partial Failure;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 2C | Yaogan 30 J, K & L;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 411 | SBIRS GEO-4;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+CASC;Site 95, Jiuquan Satellite Launch Center, China;Long March 11 | Jilin-1 07, 08 & Others;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | LKW-3;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/YZ-1 | BeiDou-3 M7 & M8;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 2D | SuperView 03 & 04;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 4 | Zuma;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 2C | Yaogan-30 G, H & I;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | LKW-2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-4E, Vandenberg AFB, California, USA;Falcon 9 Block 3 | Iridium-4;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Roscosmos;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz FG | Soyuz MS-07 (53S);StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 3 | CRS-13;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ES | Galileo FOC FM15-FM18;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/E | Alcomsat-1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | LKW-1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+VKS RF;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1b | Cosmos 2524;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Roscosmos;Site 1S, Vostochny Cosmodrome, Russia;Soyuz 2.1b/Fregat-M | Meteor-M No.2-1 & Rideshares;StatusActive;Failure;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 2C | Yaogan-30 D, E, & F;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-16, Taiyuan Satellite Launch Center, China;Long March 6 | Jilin-1 Video 04, 05 & 06;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 4C | Fengyun 3D;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/YZ-1 | BeiDou-3 M1 & M2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 4 | Koreasat 5A;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 421 | NROL-52;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Roscosmos;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz 2.1a | Progress MS-07 (68P);StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 3 | SES-11 / EchoStar 105;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+SpaceX;SLC-4E, Vandenberg AFB, California, USA;Falcon 9 Block 4 | Iridium-3;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | VRSS-2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Intelsat 37e, BSAT-4a;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 2C | Yaogan-30 A, B & C;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ULA;SLC-3E, Vandenberg AFB, California, USA;Atlas V 541 | NROL-42;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 4 | OTV-5;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+SpaceX;SLC-4E, Vandenberg AFB, California, USA;Falcon 9 Block 3 | Formosat-5;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+VKS RF;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1b/Fregat-M | GLONASS-M No.52S;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | TDRS-M (TDRS-13);StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 4 | CRS-12;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Roscosmos;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz FG | Soyuz MS-06 (52S);StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Roscosmos;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz FG | Soyuz MS-05 (51S);StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Roscosmos;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz 2.1a/Fregat | Kanopus-V IK & Rideshares;StatusActive;Partial Failure;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 3 | Intelsat 35e;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-101, Wenchang Satellite Launch Center, China;Long March 5 | Shijian-18;StatusActive;Failure;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Hellas Sat 3-Inmarsat S EAN, GSAT-17;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+SpaceX;SLC-4E, Vandenberg AFB, California, USA;Falcon 9 Block 3 | Iridium-2;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 3 | BulgariaSat-1;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+VKS RF;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1v/Volga | Cosmos 2519, 2521 and 2523;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/E | ChinaSat 9A;StatusActive;Partial Failure;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 4B | HXMT & Others;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Roscosmos;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz 2.1a | Progress MS-06 (67P);StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 3 | CRS-11;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | ViaSat 2, Eutelsat 172B;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+VKS RF;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1b/Fregat-M | EKS-2;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-A/Fregat-M | SES-15;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 3 | Inmarsat-5 F4;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Koreasat 7, SGDC-1;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 3 | NROL-76;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-201, Wenchang Satellite Launch Center, China;Long March 7/YZ-1A | Tianzhou 1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Roscosmos;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz FG | Soyuz MS-04 (50S);StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | CRS OA-7;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/E | Shijian 13;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 3 | SES-10;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 3 | Echostar 23;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+ULA;SLC-3E, Vandenberg AFB, California, USA;Atlas V 401 | NROL-79;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Roscosmos;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Progress MS-05 (66P);StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;LC-39A, Kennedy Space Center, Florida, USA;Falcon 9 Block 3 | CRS-10;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Intelsat 32e/SkyBrasil-1 & Telkom-3S;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-B/Fregat-MT | Hispasat AG1;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | SBIRS GEO-3;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+SpaceX;SLC-4E, Vandenberg AFB, California, USA;Falcon 9 Block 3 | Iridium-1;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/E | TJS 2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 2D | SuperView-1 1, 2 & Bayi Kepu 1;StatusActive;Partial Failure;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Star One D1, JCSAT-15;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | TanSat & Spark 1, 2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 431 | EchoStar 19;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3B/E | Fengyun 4A;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Roscosmos;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Progress MS-04;StatusRetired;Failure;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3C/E | Tianlian I-04;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 541 | GOES-R (GOES-16);StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Roscosmos;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz FG | Soyuz MS-03;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ES | Galileo FOC FM7/FM12-FM14;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | Yunhai-1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ULA;SLC-3E, Vandenberg AFB, California, USA;Atlas V 401 | WorldView-4;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+CASC;Site 95, Jiuquan Satellite Launch Center, China;Long March 11 | XPNAV 1, Xiaoxiang 1 & Others;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-101, Wenchang Satellite Launch Center, China;Long March 5/YZ-2 | Shijian-17;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Roscosmos;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz FG | Soyuz MS-02;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;Site 901 (SLS-1), Jiuquan Satellite Launch Center, China;Long March 2F/G | Shenzhou 11;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Sky Muster II, GSAT-18;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;Site 901 (SLS-1), Jiuquan Satellite Launch Center, China;Long March 2F/T | Tiangong-2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 411 | OSIRIS-REx;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 3 | AMOS-6;StatusRetired;Prelaunch Failure;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 4C | Gaofen-10;StatusActive;Failure;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Intelsat 33e, Intelsat 36;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | QUESS, Lixing-1, & 3CAT 2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 3 | JCSAT-16;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 4C | Gaofen-3;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3B/E | Tiantong-1 01;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 421 | NROL-61;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 3 | CRS-9;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Roscosmos;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Progress MS-03;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Roscosmos;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz FG | Soyuz MS-01;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 4B | Shijian 16-02;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-201, Wenchang Satellite Launch Center, China;Long March 7/YZ-1A | Demo Flight;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 551 | MUOS-5;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | EchoStar 18, BRISat;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 3 | ABS-2A & Eutelsat 117 West B;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3C/E | BeiDou-2 G7;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 4B | Ziyuan III-02 & ??uSat-1, 2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+VKS RF;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1b/Fregat | GLONASS-M No.51S;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 3 | Thaicom 8;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-B/Fregat-MT | Galileo FOC FM10/FM11;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | Yaogan 30;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 3 | JCSAT-14;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Roscosmos;Site 1S, Vostochny Cosmodrome, Russia;Soyuz 2.1a/Volga | Mikhailo Lomonosov, Aist-2D, & SamSat 218;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-A/Fregat-M | Sentinel 1B, MICROSCOPE & Others;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 3 | CRS-8;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | Shijian-10;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Roscosmos;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz 2.1a | Progress MS-02;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3A | BeiDou IGSO-6;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+VKS RF;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1a | Bars-M 2L;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | CRS OA-6;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Roscosmos;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz FG | Soyuz TMA-20M;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Roscosmos;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz 2.1b | Resurs-P No.3;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Eutelsat 65 West A;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 3 | SES-9;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+VKS RF;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1b/Fregat | GLONASS-M No.50S;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | GPS IIF-12;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3C/YZ-1 | BeiDou M3-S;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Intelsat 29e;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+SpaceX;SLC-4E, Vandenberg AFB, California, USA;Falcon 9 v1.1 | Jason-3;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3B/E | Belintersat 1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 Block 3 | OG2 Mission 2;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-B/Fregat-MT | Galileo FOC FM8-FM9;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | CRS OA-4;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+VKS RF;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1v/Volga | Cosmos 2511 and 2512;StatusActive;Partial Failure;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Arabsat 6B, GSAT-15;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | GPS IIF-11;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+ULA;SLC-3E, Vandenberg AFB, California, USA;Atlas V 401 | NROL-55;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 421 | Morelos-3;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | NBN Co 1A, ARSAT-2;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;Site 95, Jiuquan Satellite Launch Center, China;Long March 11 | Pujian 1 & Others;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-16, Taiyuan Satellite Launch Center, China;Long March 6 | Demo Flight;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-B/Fregat-MT | Galileo FOC FM05-FM06;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 551 | MUOS-4;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Eutelsat 8 West B, Intelsat 34;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Star One C4, MSG-4;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | GPS IIF-10;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 v1.1 | CRS-7;StatusRetired;Failure;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | DirecTV-15, Sky Mexico 1;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 501 | OTV-4;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 v1.1 | Turkmen??lem52E/MonacoSat;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Thor 7, SICRAL-2;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 v1.1 | CRS-6;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-B/Fregat-MT | Galileo FOC FM03-FM04;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 421 | MMS;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 v1.1 | ABS-3A & EUTELSAT 115 West B;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 v1.1 | DSCOVR;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 551 | MUOS-3;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 v1.1 | CRS-5;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-B/Fregat-MT | O3b FM09-FM12;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+ULA;SLC-3E, Vandenberg AFB, California, USA;Atlas V 541 | NROL-35;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | DirecTV-14, GSAT-16;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | GPS IIF-8;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Intelsat 30, ARSAT-1;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 v1.1 | CRS-4;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | CLIO;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | MEASAT 3b, Optus 10;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 v1.1 | AsiaSat 6;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-B/Fregat-MT | Galileo FOC FM01-FM02;StatusActive;Partial Failure;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+ULA;SLC-3E, Vandenberg AFB, California, USA;Atlas V 401 | WorldView 3;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 v1.1 | AsiaSat 8;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | GPS IIF-7;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ES | Georges Lema??tre ATV;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 v1.1 | OG2 Mission 1;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-B/Fregat-MT | O3b FM03/FM06-FM08;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | NROL-33;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 v1.1 | CRS-3;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 541 | NROL-67;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-A/Fregat-M | Sentinel 1A;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+ULA;SLC-3E, Vandenberg AFB, California, USA;Atlas V 401 | DMSP-5D3 F19;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Astra 5B, Amazonas 4A;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | ABS-2, Athena-Fidus;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | TDRS-L;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 v1.1 | Thaicom 6;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+VKS RF;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1v/Volga | Cosmos 2492 and 2493 & AIST-1 1;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-B/Fregat-MT | Gaia;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+ULA;SLC-3E, Vandenberg AFB, California, USA;Atlas V 501 | NROL-39;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 v1.1 | SES-8;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | MAVEN;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+SpaceX;SLC-4E, Vandenberg AFB, California, USA;Falcon 9 v1.1 | CASSIOPE;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 531 | AEHF-3;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Eutelsat 25B/Es'hail 1, GSAT-7;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Alphasat I-XL, INSAT-3D;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 551 | MUOS-2;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-B/Fregat-MT | O3b FM01-FM02/FM04-FM05;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;Site 901 (SLS-1), Jiuquan Satellite Launch Center, China;Long March 2F/G | Shenzhou 10;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ES | Albert Einstein ATV;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | GPS IIF-4;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | SBIRS GEO-2;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 v1.0 | CRS-2;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+ULA;SLC-3E, Vandenberg AFB, California, USA;Atlas V 401 | Landsat 8;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Amazonas-3, Azerspace-1 (Africasat-1A);StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | TDRS-K;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Skynet 5D, Mexsat-3;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 501 | OTV-3;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-A/Fregat | Pl??iades 1B;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Eutelsat 21B, Star One C3;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-B/Fregat-MT | Galileo IOV FM03-FM04;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 v1.0 | CRS-1;StatusRetired;Partial Failure;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Astra 2F, GSAT-10;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-3E, Vandenberg AFB, California, USA;Atlas V 401 | NROL-36;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | Van Allen Probes (RBSP);StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Intelsat 20, HYLAS 2;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | EchoStar XVII, MSG-3;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | NROL-38;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+CASC;Site 901 (SLS-1), Jiuquan Satellite Launch Center, China;Long March 2F/G | Shenzhou 9;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 v1.0 | COTS-2+;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | JCSAT-13, Vinasat-2;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 531 | AEHF-2;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ES | Edoardo Amaldi ATV;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 551 | MUOS-1;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-A/Fregat | Pl??iades 1A, SSOT, Elisa;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 541 | Mars Science Laboratory;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+CASC;Site 901 (SLS-1), Jiuquan Satellite Launch Center, China;Long March 2F/G | Shenzhou 8;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELS, Guiana Space Centre, French Guiana, France;Soyuz ST-B/Fregat-MT | Galileo IOV FM01-FM02;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;Site 901 (SLS-1), Jiuquan Satellite Launch Center, China;Long March 2F/T | Tiangong-1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Arabsat-5C, SES-2;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Astra 1N, BSAT-3C (JCSAT-110R);StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 551 | Juno;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | ST-2, GSAT-8;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | SBIRS GEO-1;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Yahsat 1A, Intelsat 28 (New Dawn);StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-3E, Vandenberg AFB, California, USA;Atlas V 411 | NROL-34;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 501 | OTV-2;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ES | Johannes Kepler ATV;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Koreasat 6, Hispasat-1E;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 v1.0 | COTS-1;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Intelsat 17, HYLAS-1;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Eutelsat W3B, BSAT-3B;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-3E, Vandenberg AFB, California, USA;Atlas V 501 | NROL-41;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 531 | AEHF-1;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Nilesat-201, Rascom-QAF 1R;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Arabsat-5A, COMS-1;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+SpaceX;SLC-40, Cape Canaveral AFS, Florida, USA;Falcon 9 v1.0 | Flight 1;StatusRetired;Success;RP-1/LOX;7,607 kN;22,800 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Astra 3B  & COMSATBw-2;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Roscosmos;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Progress M-05M;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 501 | OTV-1;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Roscosmos;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz FG | Soyuz TMA-18;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | SDO;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Roscosmos;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Soyuz-U;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 GS | Helios 2B;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 431 | Intersat 14;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | NSS-12 & Thor-6;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-3E, Vandenberg AFB, California, USA;Atlas V 401 | DMSP-5D3-F18;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Amazonas 2 & COMSATBw-1;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | PAN;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | JCSAT-12 & Optus D3;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | TerreStar-1;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 421 | LRO/LCROSS;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Herschel Space Observatory & Planck;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 421 | WGS-2;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Hot Bird 10, NSS-9, Spirale-A & B;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Hot Bird 9 & Eutelsat W2M;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | Shiyan-3 & Chuangxin-1(02);StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | Shiyan-3 & Chuangxin-1(02);StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/E | VENESAT 1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-9, Taiyuan Satellite Launch Center, China;Long March 4B | Shijian-6E & F;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 901 (SLS-1), Jiuquan Satellite Launch Center, China;Long March 2F/G | Shenzhou 7;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 2C/SMA | Huanjing-1A & 1B;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Superbird-7 & AMC-21;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | ProtoStar-1 & Badr-6;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Skynet 5C & Turksat 3A;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B | ChinaSat 9;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 4C | Fengyun-3A;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3C | Tianlian I-01;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Star One C2 & Vinasat-1;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 421 | ICO G1;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+ULA;SLC-3E, Vandenberg AFB, California, USA;Atlas V 411 | NROL-28;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ES | Jules Verne ATV;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 GS | Rascom-QAF1 & Horizons-2;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | NROL-24;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Skynet 5B & Star One C1;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 4C | Yaogan 3;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3B | Chang'e 1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 421 | WSG-1;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 GS | Intelsat 11 & Optus D2;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 4B | CBERS-2B;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Spaceway-3 & BSat-3A;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B | Chinasat-6B;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | NROL-30 & NOSS-3;StatusActive;Partial Failure;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3A | SinoSat 3;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | Yaogan 2 & ZDPS-1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B/E | NIGCOMSAT-1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Astra 1L & Galaxy 17;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3A | Compass-M1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 2C | Haiyang-1B;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Skynet 5A & INSAT-4B;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ULA;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | STP-1, FalconSat-3;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3A | Beidou-1D;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | WildBlue-1 & AMC-18;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3A | Fengyun-2D;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B | SinoSat 2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 4B | Shijian-6C & 6D;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | DirecTV-9S, Optus D1, LDREX-2;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3A | Chinasat-22A;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2C | Shijian-8;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | JCSAT-10 & Syracuse 3B;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Satmex-6 & Thaicom-5;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 4C | Yaogan 1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ILS;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 411 | Astra 1KR;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Spainsat & Hot Bird 7A;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ILS;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 551 | New Horizons;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 GS | INSAT-4A & MSG-2;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Spaceway-2 & Telkom-2;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;Site 901 (SLS-1), Jiuquan Satellite Launch Center, China;Long March 2F | Shenzhou 6;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 GS | Syracuse 3A & Galaxy 15;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | FSW-3 No. 3;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ILS;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | Mars Reconnaissance Orbiter;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 GS | iPStar-1;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2C | FSW-4 No. 2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | Shijian-7;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B | Apstar 6;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ILS;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 431 | Inmarsat-4 F1;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | XTAR-EUR, Maqsat-B2, Sloshsat-FLEVO;StatusActive;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 G+ | Helios 2A, Essaim-1,2,3,4, PARASOL, Nanosat 01;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ILS;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 521 | AMC-16;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 2C | Shiyan-2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+VKS RF;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz 2.1a | Demo Flight;StatusActive;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 4B | Ziyuan ll-03;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3A | Fengyun-2C;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | FSW-3 No.2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 4B | Shijian-6A & 6B;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2C | FSW-4 No.1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 2C | Double Star 2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 G+ | Anik F2;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 2C | Shiyan-1 & Nano Satellite 1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 G+ | Rosetta & Philae;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 2C | Double Star 1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3A | Chinasat-20;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 9401 (SLS-2), Jiuquan Satellite Launch Center, China;Long March 2D | FSW-3 No.1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 4B | CBERS-2 & Chuangxin 1(01);StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 901 (SLS-1), Jiuquan Satellite Launch Center, China;Long March 2F | Shenzhou 5;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 G | Insat 3E, eBird-1, SMART-1;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ILS;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 521 | Rainbow 1;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 G | Optus C1 & BSAT-2c;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Starsem;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz FG/Fregat | Mars Express;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3A | Beidou-1C;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ILS;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | HellasSat-2;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 G | INSAT-3A & Galaxy 12;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;Site 901 (SLS-1), Jiuquan Satellite Launch Center, China;Long March 2F | Shenzhou 4;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 ECA | Hot Bird 7, Stentor, MFD-A, MFD-B;StatusActive;Failure;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 4B | Ziyuan ll-02;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 G | Atlantic Bird 1, MSG-1, MFD;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+ILS;SLC-41, Cape Canaveral AFS, Florida, USA;Atlas V 401 | Hot Bird 6;StatusActive;Success;RP-1/LOX + LH2/LOX;3,800 kN;18,850 kg;334,500 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 G | Stellat-5 & NStar-C;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 4B | Fengyun-1D & Haiyang-1A;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 901 (SLS-1), Jiuquan Satellite Launch Center, China;Long March 2F | Shenzhou 3;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 G | Envisat;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 G | Artemis & BSAT-2b;StatusRetired;Partial Failure;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 G | Eurobird-1 & BSat-2a;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;Site 901 (SLS-1), Jiuquan Satellite Launch Center, China;Long March 2F | Shenzhou 2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3A | Beidou-1B;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 G | Astra 2D, GE-8, LDREX;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 G | PanAmSat-1R, Amsat-P3D, STRV 1C, STRV 1D;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3A | Beidou-1A;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 G | Astra 2B & GE-7;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3 | Fengyun-2B;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 G | INSAT-3B & AsiaStar;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3A | ChinaSat-22;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+Arianespace;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 G | XMM-Newton;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;Site 901 (SLS-1), Jiuquan Satellite Launch Center, China;Long March 2F | Shenzhou 1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 4B | CBERS-1 & SACI 1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 2C | Iridium 92 & 93;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 4B | Fengyun 1C & Shijian-5;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 2C | Iridium 88 & 89;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ESA;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 G | MaqSat 3 & ARD;StatusRetired;Success;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 2C | Iridium 76 & 78;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B | SinoSat 1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B | ChinaStar 1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 2C | Iridium 69 & 71;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 2C | Iridium 51 & 61;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 2C | Iridium 42 & 44;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ESA;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 G | MaqSat-H, TEAMSAT, MaqSat-B, YES;StatusRetired;Partial Failure;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B | Apstar 2R;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-7, Taiyuan Satellite Launch Center, China;Long March 2C | Iridium mass simulator A&B;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B | Agila-2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3 | Fengyun-2A;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3A | ChinaSat 6;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 138 (LA-2B), Jiuquan Satellite Launch Center, China;Long March 2D | FSW-2 No.3;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3 | Chinasat-7;StatusRetired;Partial Failure;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3 | Apstar 1A;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+ESA;ELA-3, Guiana Space Centre, French Guiana, France;Ariane 5 G | Cluster;StatusRetired;Failure;LH2/LOX + Solid;13,000 kN;21,000 kg;780,000 kg;2
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3B | Intelsat 708;StatusActive;Failure;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 2E | EchoStar 1;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 2E | AsiaSat 2;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 2E | Apstar 2;StatusRetired;Failure;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3A | Chinasat-5;StatusActive;Partial Failure;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 2E | Optus-B3;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3 | Apstar-1;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 138 (LA-2B), Jiuquan Satellite Launch Center, China;Long March 2D | FSW-2 No.2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 3A | Shijian 4, Kuafu-1 (mass simulator);StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 138 (LA-2B), Jiuquan Satellite Launch Center, China;Long March 2C | FSW-1 No.5;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 2E | Optus-B2;StatusRetired;Failure;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 138 (LA-2B), Jiuquan Satellite Launch Center, China;Long March 2C | FSW-1 No.4, Freja;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 2E | Optus-B1;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 138 (LA-2B), Jiuquan Satellite Launch Center, China;Long March 2D | FSW-2 No.1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3 | DFH-2A-T5;StatusRetired;Partial Failure;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 138 (LA-2B), Jiuquan Satellite Launch Center, China;Long March 2C | FSW-1 No.3;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Taiyuan Satellite Launch Center, China;Long March 4A | Fengyun-1B;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-2, Xichang Satellite Launch Center, China;Long March 2E | Optus-B, Badr-1, mass simulator;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3 | AsiaSat 1;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3 | DFH-2A-T4;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3 | DFH-2A-T3;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Taiyuan Satellite Launch Center, China;Long March 4A | Fengyun 1A;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 138 (LA-2B), Jiuquan Satellite Launch Center, China;Long March 2C | FSW-1 No.2;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3 | DFH-2A-T2;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 138 (LA-2B), Jiuquan Satellite Launch Center, China;Long March 2C | FSW-1 No.1;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 138 (LA-2B), Jiuquan Satellite Launch Center, China;Long March 2C | FSW-0 No.9;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 138 (LA-2B), Jiuquan Satellite Launch Center, China;Long March 2C | FSW-0 No.8;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3 | DFH-2A-T1;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 138 (LA-2B), Jiuquan Satellite Launch Center, China;Long March 2C | FSW-0 No.7;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 138 (LA-2B), Jiuquan Satellite Launch Center, China;Long March 2C | FSW-0 No.6;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3 | STTW 2 (Dong Fang Hong 2);StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;LC-3, Xichang Satellite Launch Center, China;Long March 3 | STTW 1 (Dong Fang Hong 2);StatusRetired;Partial Failure;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 138 (LA-2B), Jiuquan Satellite Launch Center, China;Long March 2C | FSW-0 No.5;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 138 (LA-2B), Jiuquan Satellite Launch Center, China;Long March 2C | FSW-0 No.4;StatusActive;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+RVSN USSR;Site 41/1, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1069;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1068;StatusRetired;Partial Failure;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1061;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 1060;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 41/1, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1059;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1050;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1049;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 41/1, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1047;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 41/1, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1046;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1044;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1042;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1033;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1032;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 41/1, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1031;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1029;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1028;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1022;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 1021;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1010;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1007;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1004;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1003;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 1002;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 999;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 995;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 993;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 992;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 989;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 988;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 987;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;Site 138 (LA-2B), Jiuquan Satellite Launch Center, China;Long March 2 | FSW-0 No.3;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 986;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 984;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 974;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 973;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 969;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 966;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Soyuz 26;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 964;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 958;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Soyuz 25;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 957;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 953;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 950;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 949;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 948;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 947;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 938;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Zenit-4MKM nâ Â­399;StatusRetired;Failure;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 936;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 935;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 934;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 932;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 927;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 922;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 920;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 916;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 915;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 914;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 912;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 908;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 907;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 905;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 904;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 902;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 898;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 897;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 896;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Zenit-4MK nâ Â­381;StatusRetired;Failure;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 892;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Soyuz 24;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 889;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 888;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 884;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 879;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;Site 138 (LA-2B), Jiuquan Satellite Launch Center, China;Long March 2 | FSW-0 No.2;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 869;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 867;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 866;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 865;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 863;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 23;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 859;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Zenit-4MKT nâ Â­370;StatusRetired;Failure;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 857;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 856;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 855;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Soyuz 22;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 854;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 852;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 848;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 847;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 844;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 840;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 21;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 834;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 820;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 41/1, Plesetsk Cosmodrome, Russia;Soyuz M | Cosmos 811;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 809;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 806;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 805;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 782;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Soyuz 20;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;Site 138 (LA-2B), Jiuquan Satellite Launch Center, China;Long March 2 | FSW-0 No.1;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 772;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 771;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 759;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 758;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+NASA;LC-39B, Kennedy Space Center, Florida, USA;Saturn IB | ASTP (Apollo???Soyuz Test Project);StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Soyuz 19 (Apollo-Soyuz);StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 743;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 1012;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 18;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 727;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 18a (7K-T nâ Â­39);StatusRetired;Failure;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 720;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 17;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 697;StatusRetired;Partial Failure;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Soyuz 16;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;Site 138 (LA-2B), Jiuquan Satellite Launch Center, China;Long March 2 | FSW-0 No.0;StatusRetired;Failure;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+RVSN USSR;Site 41/1, Plesetsk Cosmodrome, Russia;Soyuz M | Cosmos 693;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 691;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 690;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 15;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 672;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 670;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 14;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz M | Cosmos 664;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Cosmos 656;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Yantar-2K nâ Â­01;StatusRetired;Failure;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 652;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 638;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz U | Cosmos 636;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Cosmos 613;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 13;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 41/1, Plesetsk Cosmodrome, Russia;Soyuz M | Cosmos 616;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 605;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 12;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 587;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 41/1, Plesetsk Cosmodrome, Russia;Soyuz M | Cosmos 576;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Cosmos 573;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/3, Plesetsk Cosmodrome, Russia;Soyuz U | Cosmos 559;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 41/1, Plesetsk Cosmodrome, Russia;Soyuz M | Cosmos 541;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 110/37, Baikonur Cosmodrome, Kazakhstan;N1-L3 | 7L (Soyuz 7K-LOK No.1);StatusRetired;Failure;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 43/4, Plesetsk Cosmodrome, Russia;Soyuz M | Cosmos 502;StatusRetired;Partial Failure;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Cosmos 496;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 41/1, Plesetsk Cosmodrome, Russia;Soyuz M | Cosmos 470;StatusRetired;Partial Failure;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz L | Cosmos 434 (T2K Lunar Lander);StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 11;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 10;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;Site 5020 (LA-2A), Jiuquan Satellite Launch Center, China;Long March 1 | Shijian 1;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz L | Cosmos 398 (T2K Lunar Lander);StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz L | Cosmos 379 (T2K Lunar Lander);StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+Roscosmos;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 9;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+CASC;Site 5020 (LA-2A), Jiuquan Satellite Launch Center, China;Long March 1 | Dong Fang Hong 1;StatusRetired;Success;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+CASC;Site 5020 (LA-2A), Jiuquan Satellite Launch Center, China;Long March 1 | Test flight;StatusRetired;Failure;N2O4/UDMH or LOX/LH2;6,000 kN;25,000 kg;549,000 kg;1
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 8;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 7;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 6;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 5;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 4;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 3;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 2;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz | Cosmos 238;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Cosmos 213;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz | Cosmos 212;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Cosmos 188;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz | Cosmos 186;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 1;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 1/5, Baikonur Cosmodrome, Kazakhstan;Soyuz | Cosmos 140;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz | Soyuz 7K-OK nâ Â­1;StatusRetired;Prelaunch Failure;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0
+RVSN USSR;Site 31/6, Baikonur Cosmodrome, Kazakhstan;Soyuz | Cosmos 133;StatusRetired;Success;RP-1/LOX;4,150 kN;8,200 kg;312,000 kg;0

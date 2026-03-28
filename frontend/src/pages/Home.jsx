@@ -7,17 +7,6 @@ import { Navbar } from '../components/Navbar'
 import { WorldMap } from '../components/WorldMap'
 import { postPredict } from '../services/api'
 
-const defaultResult = {
-  confidence: 98.4,
-  riskFactor: 0.02,
-  status: 'SUCCESS',
-  atmosphericStability: 85,
-  geopoliticalFit: 92,
-  summary:
-    'Veri seti 1.4ms içerisinde işlendi. Mevcut girdiler fırlatma penceresinin %94 olasılıkla başarılı geçeceğini işaret etmektedir.',
-  engineVersion: 'Derin Öğrenme Motoru v4.2',
-}
-
 /* Animated counter that counts up when scrolled into view */
 function CountUp({ to, decimals = 0, duration = 1400 }) {
   const [val, setVal] = useState(0)
@@ -48,20 +37,11 @@ function CountUp({ to, decimals = 0, duration = 1400 }) {
   return <span ref={nodeRef}>{val.toFixed(decimals)}</span>
 }
 
-function statusStyles(status) {
-  if (status === 'SUCCESS')
-    return 'border-secondary/20 bg-secondary-container/20 text-secondary'
-  if (status === 'CAUTION') return 'border-amber-500/30 bg-amber-500/10 text-amber-400'
-  return 'border-error/30 bg-error/10 text-error'
-}
 
 export function Home({ theme, onToggleTheme }) {
   const location = useLocation()
-  const [temperature, setTemperature] = useState('24')
-  const [population, setPopulation] = useState('500000')
-  const [logisticsScore, setLogisticsScore] = useState('8.5')
-  const [extra, setExtra] = useState('Standart')
-  const [result, setResult] = useState(defaultResult)
+  const [rocketIdx, setRocketIdx] = useState('0')
+  const [result, setResult] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const [selectedBase, setSelectedBase] = useState(null)
@@ -88,32 +68,33 @@ export function Home({ theme, onToggleTheme }) {
     return () => window.clearTimeout(t)
   }, [location.hash, location.pathname])
 
-  const onAnalyze = async (e) => {
-    e.preventDefault()
+  const runAnalysis = useCallback(async (base, rIdx) => {
+    if (!base?.id == null) return
     setError(null)
     setLoading(true)
     try {
       const data = await postPredict({
-        temperature: Number(temperature),
-        population: Number(population),
-        logisticsScore: Number(logisticsScore),
-        extra,
+        rocket_idx: Number(rIdx ?? 0),
+        site_idx: base.id,
       })
-      setResult((r) => ({
-        ...r,
-        confidence: data.confidence,
-        riskFactor: data.riskFactor,
-        status: data.status,
-        atmosphericStability: data.atmosphericStability,
-        geopoliticalFit: data.geopoliticalFit,
-        summary: data.summary ?? r.summary,
-        engineVersion: data.engineVersion ?? r.engineVersion,
-      }))
+      setResult(data.raw)
     } catch {
-      setError('Analiz isteği başarısız. API çalışıyor mu kontrol edin.')
+      setError('Analiz isteği başarısız. Flask API çalışıyor mu kontrol edin.')
     } finally {
       setLoading(false)
     }
+  }, [])
+
+  // Haritadan yer seçilince otomatik analiz çalıştır
+  useEffect(() => {
+    if (!selectedBase || selectedBase.id == null) { setResult(null); return }
+    runAnalysis(selectedBase, rocketIdx)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedBase?.id])
+
+  const onAnalyze = (e) => {
+    e.preventDefault()
+    runAnalysis(selectedBase, rocketIdx)
   }
 
   return (
@@ -173,16 +154,28 @@ export function Home({ theme, onToggleTheme }) {
                     <span className="material-symbols-outlined mso-fill">cloud</span>
                   </div>
                   <div className="mb-2 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Hava Durumu</div>
-                  <div className="mb-2 font-headline text-4xl font-extrabold text-on-surface glow-num"><CountUp to={24} />°C</div>
-                  <p className="text-sm text-on-surface-variant">Parçalı bulutlu, rüzgar hızı düşük. Fırlatış için ideal.</p>
+                  <div className="mb-2 font-headline text-4xl font-extrabold text-on-surface glow-num">
+                    {result?.['METEOROLOJİ_VERİSİ']?.['Sicaklik_C'] != null
+                      ? <><CountUp key={result['METEOROLOJİ_VERİSİ']['Sicaklik_C']} to={result['METEOROLOJİ_VERİSİ']['Sicaklik_C']} decimals={1} />°C</>
+                      : <span className="text-2xl text-on-surface-variant opacity-40">—</span>}
+                  </div>
+                  <p className="text-sm text-on-surface-variant">
+                    {result ? `Rüzgar: ${result['METEOROLOJİ_VERİSİ']?.['Rüzgar_Hızı'] ?? '—'}` : 'Simülasyon sonucu bekleniyor.'}
+                  </p>
                 </div>
                 <div className="reveal reveal-d2 glass-card group rounded-xl p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(187,158,255,0.1)]">
                   <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-transform group-hover:scale-110">
                     <span className="material-symbols-outlined mso-fill">inventory_2</span>
                   </div>
                   <div className="mb-2 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Lojistik Puan</div>
-                  <div className="mb-2 font-headline text-4xl font-extrabold text-on-surface glow-num"><CountUp to={9.2} decimals={1} />/10</div>
-                  <p className="text-sm text-on-surface-variant">Tedarik zinciri verimliliği en üst düzeyde seyrediyor.</p>
+                  <div className="mb-2 font-headline text-4xl font-extrabold text-on-surface glow-num">
+                    {result?.['SAHA_ANALİZİ']?.['Guvenilirlik_Puani'] != null
+                      ? <><CountUp key={result['SAHA_ANALİZİ']['Guvenilirlik_Puani']} to={result['SAHA_ANALİZİ']['Guvenilirlik_Puani']} decimals={1} />/10</>
+                      : <span className="text-2xl text-on-surface-variant opacity-40">—</span>}
+                  </div>
+                  <p className="text-sm text-on-surface-variant">
+                    {result ? `Başarı oranı: ${result['SAHA_ANALİZİ']?.['Basari_Yuzdesi'] ?? '—'} · Ekvator: ${result['SAHA_ANALİZİ']?.['Ekvator_Skoru'] ?? '—'}` : 'Simülasyon sonucu bekleniyor.'}
+                  </p>
                 </div>
                 <div className="reveal reveal-d3 glass-card group rounded-xl p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(255,89,227,0.1)]">
                   <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-tertiary/10 text-tertiary transition-transform group-hover:scale-110">
@@ -197,68 +190,39 @@ export function Home({ theme, onToggleTheme }) {
               </section>
 
               <section id="analiz" className="reveal grid grid-cols-1 items-start gap-8 scroll-mt-28 lg:grid-cols-5">
-                <div className="space-y-8 rounded-xl bg-surface-container p-8 text-on-surface lg:col-span-2">
+                {/* Sol: Parametre formu */}
+                <div className="space-y-6 rounded-xl bg-surface-container p-8 text-on-surface lg:col-span-2">
                   <div>
-                    <h2 className="mb-2 font-headline text-2xl font-bold">Parametre Girişi</h2>
-                    <p className="text-sm text-on-surface-variant">Analiz için gerekli değişkenleri manuel olarak düzenleyin.</p>
+                    <h2 className="mb-2 font-headline text-2xl font-bold">Simülasyon Parametresi</h2>
+                    <p className="text-sm text-on-surface-variant">Roket seçin. Fırlatma sahası haritadan otomatik alınır.</p>
                   </div>
                   <form className="space-y-6" onSubmit={onAnalyze}>
                     <div>
                       <label className="mb-2 block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
-                        Sıcaklık (°C)
+                        Roket İndeksi
                       </label>
                       <input
-                        value={temperature}
-                        onChange={(e) => setTemperature(e.target.value)}
-                        className="w-full rounded-lg border-none border-b-2 border-transparent bg-surface-container-low px-4 py-3 text-on-surface transition-colors placeholder:text-outline focus:bg-surface-container-high focus:ring-0 focus:border-secondary dark:bg-surface-container-low"
-                        placeholder="24"
+                        value={rocketIdx}
+                        onChange={(e) => setRocketIdx(e.target.value)}
+                        className="w-full rounded-lg bg-surface-container-low px-4 py-3 text-on-surface transition-colors focus:bg-surface-container-high focus:outline-none focus:ring-1 focus:ring-secondary"
+                        placeholder="0"
                         type="number"
+                        min="0"
                         required
                       />
                     </div>
-                    <div>
-                      <label className="mb-2 block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Nüfus</label>
-                      <input
-                        value={population}
-                        onChange={(e) => setPopulation(e.target.value)}
-                        className="w-full rounded-lg border-none border-b-2 border-transparent bg-surface-container-low px-4 py-3 text-on-surface transition-colors focus:bg-surface-container-high focus:ring-0 focus:border-secondary dark:bg-surface-container-low"
-                        placeholder="500000"
-                        type="number"
-                        required
-                      />
-                    </div>
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                      <div>
-                        <label className="mb-2 block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
-                          Lojistik Skoru
-                        </label>
-                        <input
-                          value={logisticsScore}
-                          onChange={(e) => setLogisticsScore(e.target.value)}
-                          className="w-full rounded-lg border-none border-b-2 border-transparent bg-surface-container-low px-4 py-3 text-on-surface transition-colors focus:bg-surface-container-high focus:ring-0 focus:border-secondary dark:bg-surface-container-low"
-                          placeholder="8.5"
-                          step="0.1"
-                          type="number"
-                          required
-                        />
-                      </div>
-                      <div>
-                        <label className="mb-2 block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
-                          Ek Parametre
-                        </label>
-                        <input
-                          value={extra}
-                          onChange={(e) => setExtra(e.target.value)}
-                          className="w-full rounded-lg border-none border-b-2 border-transparent bg-surface-container-low px-4 py-3 text-on-surface transition-colors focus:bg-surface-container-high focus:ring-0 focus:border-secondary dark:bg-surface-container-low"
-                          placeholder="Standart"
-                          type="text"
-                        />
-                      </div>
+                    <div className="rounded-lg bg-surface-container-low px-4 py-3">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Seçili Üs</span>
+                      <p className="mt-1 text-sm text-on-surface">
+                        {selectedBase
+                          ? `${selectedBase.name} — ${selectedBase.country} (idx: ${selectedBase.id})`
+                          : 'Haritadan bir fırlatma sahası seçin'}
+                      </p>
                     </div>
                     {error && <p className="text-sm text-error">{error}</p>}
                     <button
                       type="submit"
-                      disabled={loading}
+                      disabled={loading || !selectedBase}
                       className="premium-gradient flex w-full items-center justify-center gap-2 rounded-full py-4 font-headline font-bold text-on-primary-fixed shadow-[0_10px_30px_rgba(135,76,255,0.3)] transition-transform hover:scale-[1.04] disabled:opacity-60"
                     >
                       {loading ? <LoadingSpinner size="sm" className="border-on-surface" /> : null}
@@ -268,59 +232,107 @@ export function Home({ theme, onToggleTheme }) {
                   </form>
                 </div>
 
-                <div className="relative flex h-full min-h-[420px] flex-col justify-between overflow-hidden rounded-xl bg-surface-container-high p-8 text-on-surface sm:p-10 lg:col-span-3">
+                {/* Sağ: Model sonucu */}
+                <div className="relative flex min-h-[420px] flex-col overflow-hidden rounded-xl bg-surface-container-high p-8 text-on-surface sm:p-10 lg:col-span-3">
                   <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-[100px]" aria-hidden />
-                  <div>
-                    <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
-                      <div>
-                        <h2 className="mb-2 font-headline text-3xl font-extrabold">Model Sonucu</h2>
-                        <p className="text-sm italic text-on-surface-variant">{result.engineVersion} tarafından oluşturuldu.</p>
-                      </div>
-                      <div
-                        className={`inline-flex shrink-0 items-center gap-2 self-start rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-widest ${statusStyles(result.status)}`}
-                      >
-                        <span className="h-2 w-2 animate-pulse rounded-full bg-current opacity-80" />
-                        {result.status}
-                      </div>
+
+                  {/* Boş durum */}
+                  {!result && !loading && (
+                    <div className="flex flex-1 flex-col items-center justify-center gap-4 text-center text-on-surface-variant">
+                      <span className="material-symbols-outlined text-5xl opacity-30">rocket_launch</span>
+                      <p className="text-sm">Haritadan bir fırlatma sahası seçin,<br />simülasyon otomatik başlar.</p>
                     </div>
-                    <div className="mb-10 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-12">
-                      <div>
-                        <div className="mb-1 text-xs text-on-surface-variant">Güven Aralığı</div>
-                        <div className="font-headline text-5xl font-black text-on-surface glow-num">
-                          <CountUp to={result.confidence} decimals={1} />
-                          <span className="text-2xl font-normal opacity-40">%</span>
+                  )}
+
+                  {/* Yükleniyor */}
+                  {loading && (
+                    <div className="flex flex-1 flex-col items-center justify-center gap-4">
+                      <LoadingSpinner />
+                      <p className="text-sm text-on-surface-variant">Simülasyon çalışıyor...</p>
+                    </div>
+                  )}
+
+                  {/* Sonuç */}
+                  {result && !loading && (
+                    <div className="flex flex-col gap-5">
+                      {/* Başlık + GO/NO-GO rozeti */}
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <h2 className="font-headline text-3xl font-extrabold">Model Sonucu</h2>
+                          <p className="mt-1 text-sm text-on-surface-variant">
+                            {result['GÖREV_BİLGİLERİ']?.['Operatör']} · {result['GÖREV_BİLGİLERİ']?.['Roket']}
+                          </p>
+                          <p className="text-xs text-on-surface-variant opacity-60">
+                            {result['GÖREV_BİLGİLERİ']?.['Fırlatma_Sahas']}
+                          </p>
+                        </div>
+                        <div
+                          className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-widest ${
+                            result['FIRLATMA_DURUMU'] === 'GO'
+                              ? 'border-secondary/20 bg-secondary-container/20 text-secondary'
+                              : 'border-error/30 bg-error/10 text-error'
+                          }`}
+                        >
+                          <span className="h-2 w-2 animate-pulse rounded-full bg-current opacity-80" />
+                          {result['FIRLATMA_DURUMU']}
                         </div>
                       </div>
+
+                      {/* Teknik Analiz */}
                       <div>
-                        <div className="mb-1 text-xs text-on-surface-variant">Risk Faktörü</div>
-                        <div className="font-headline text-5xl font-black text-error-dim glow-num">
-                          <CountUp to={result.riskFactor} decimals={2} />
-                          <span className="text-2xl font-normal opacity-40">σ</span>
+                        <div className="mb-2 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Teknik Analiz</div>
+                        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+                          {[
+                            { label: 'TWR Oranı', value: result['TEKNİK_ANALİZ_RAPORU']?.['TWR_Oranı'], accent: true },
+                            { label: 'Delta-v', value: result['TEKNİK_ANALİZ_RAPORU']?.['Delta_v_Kapasitesi'] },
+                            { label: 'Max-Q', value: result['TEKNİK_ANALİZ_RAPORU']?.['Max_Q_Basıncı'] },
+                            { label: 'İtki Kuvveti', value: result['TEKNİK_ANALİZ_RAPORU']?.['İtki_Kuvveti_N'] },
+                            { label: 'Kalkış Kütlesi', value: result['TEKNİK_ANALİZ_RAPORU']?.['Kalkış_Ağırlığı_kg'] },
+                            { label: 'Rüzgar', value: result['METEOROLOJİ_VERİSİ']?.['Rüzgar_Hızı'] },
+                          ].map(({ label, value, accent }) => (
+                            <div key={label} className="rounded-lg bg-surface/40 p-3">
+                              <div className="text-[10px] uppercase tracking-wider text-on-surface-variant">{label}</div>
+                              <div className={`mt-1 font-headline text-sm font-bold ${accent ? 'text-secondary' : 'text-on-surface'}`}>
+                                {value ?? '—'}
+                              </div>
+                            </div>
+                          ))}
                         </div>
                       </div>
-                    </div>
-                  </div>
-                  <div className="space-y-4">
-                    <div className="flex flex-wrap items-center justify-between gap-4 rounded-lg bg-surface/40 p-4">
-                      <span className="text-sm font-medium text-on-surface">Atmosferik Kararlılık</span>
-                      <div className="h-1.5 w-full max-w-[8rem] shrink-0 overflow-hidden rounded-full bg-surface-container sm:w-32">
-                        <div
-                          className="bar-animated h-full bg-secondary transition-all duration-700"
-                          style={{ width: `${result.atmosphericStability}%` }}
-                        />
+
+                      {/* Saha Analizi */}
+                      <div>
+                        <div className="mb-2 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Saha Analizi</div>
+                        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+                          {[
+                            { label: 'Ekvator Skoru', value: result['SAHA_ANALİZİ']?.['Ekvator_Skoru'] },
+                            { label: 'Başarı Oranı', value: result['SAHA_ANALİZİ']?.['Basari_Yuzdesi'] },
+                            { label: 'Güvenilirlik', value: result['SAHA_ANALİZİ']?.['Guvenilirlik_Puani'] },
+                            { label: 'Toplam Atış', value: result['SAHA_ANALİZİ']?.['Toplam_Atis'] },
+                            { label: 'Rakım', value: result['SAHA_ANALİZİ']?.['Rakım_m'] != null ? `${result['SAHA_ANALİZİ']['Rakım_m']} m` : '—' },
+                            { label: 'Sıcaklık', value: result['METEOROLOJİ_VERİSİ']?.['Sicaklik_C'] != null ? `${result['METEOROLOJİ_VERİSİ']['Sicaklik_C']} °C` : '—' },
+                          ].map(({ label, value }) => (
+                            <div key={label} className="rounded-lg bg-surface/40 p-3">
+                              <div className="text-[10px] uppercase tracking-wider text-on-surface-variant">{label}</div>
+                              <div className="mt-1 font-headline text-sm font-bold text-on-surface">{value ?? '—'}</div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Risk notları */}
+                      <div className="rounded-lg bg-surface/40 p-4">
+                        <div className="mb-1 text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">
+                          Risk & Engel Notları
+                        </div>
+                        <p className="text-xs leading-relaxed text-on-surface-variant">
+                          {Array.isArray(result['RİSK_VE_ENGEL_NOTLARI'])
+                            ? result['RİSK_VE_ENGEL_NOTLARI'].join(' | ')
+                            : result['RİSK_VE_ENGEL_NOTLARI']}
+                        </p>
                       </div>
                     </div>
-                    <div className="flex flex-wrap items-center justify-between gap-4 rounded-lg bg-surface/40 p-4">
-                      <span className="text-sm font-medium text-on-surface">Jeopolitik Uygunluk</span>
-                      <div className="h-1.5 w-full max-w-[8rem] shrink-0 overflow-hidden rounded-full bg-surface-container sm:w-32">
-                        <div
-                          className="bar-animated h-full bg-primary transition-all duration-700"
-                          style={{ width: `${result.geopoliticalFit}%` }}
-                        />
-                      </div>
-                    </div>
-                    <p className="mt-6 text-xs leading-relaxed text-on-surface-variant">{result.summary}</p>
-                  </div>
+                  )}
                 </div>
               </section>
 
