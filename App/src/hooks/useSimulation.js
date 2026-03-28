@@ -7,9 +7,20 @@ import { analyzeFlight } from "../simulation/telemetry/analysis";
 import { createRunSnapshot } from "../simulation/comparison/createRunSnapshot";
 import { saveRun, getRuns, resetRuns } from "../simulation/comparison/runStore";
 import { evaluateScenario } from "../simulation/scenario/evaluateScenario";
+import {
+  saveSessionToStorage,
+  loadSessionFromStorage,
+  clearSessionFromStorage
+} from "../simulation/persistence/storage";
+import { createSessionSnapshot } from "../simulation/persistence/sessionSnapshot";
+import { restoreSessionState } from "../simulation/persistence/restoreSessionState";
 
 export function useSimulation() {
-  const [state, setState] = useState(initialState);
+  const [state, setState] = useState(() => {
+    const savedSession = loadSessionFromStorage();
+    return restoreSessionState(savedSession);
+  });
+  
   const [history, setHistory] = useState([]);
   const [runCount, setRunCount] = useState(0);
 
@@ -56,6 +67,24 @@ export function useSimulation() {
 
     return () => cancelAnimationFrame(animationFrameId);
   }, []);
+
+  // Autosave session whenever key parameters change
+  useEffect(() => {
+    const sessionSnapshot = createSessionSnapshot(state);
+    saveSessionToStorage(sessionSnapshot);
+  }, [
+    state.fuel,
+    state.fuelMass,
+    state.dryMass,
+    state.totalMass,
+    state.mass,
+    state.thrust,
+    state.burnRate,
+    state.dragCoefficient,
+    state.thrustCurve,
+    state.activeScenario,
+    state.simulationSpeed
+  ]);
 
   // Auto-save run + evaluate scenario when flight lands
   useEffect(() => {
@@ -107,7 +136,17 @@ export function useSimulation() {
       state: "countdown",
       countdown: 5,
       launchStartTime: null,
+      fuel: prev.fuel,
+      fuelMass: prev.fuelMass,
+      dryMass: prev.dryMass,
+      totalMass: prev.totalMass,
+      mass: prev.mass,
+      thrust: prev.thrust,
+      burnRate: prev.burnRate,
+      dragCoefficient: prev.dragCoefficient,
+      thrustCurve: prev.thrustCurve,
       activeScenario: prev.activeScenario, // preserve selected scenario
+      simulationSpeed: prev.simulationSpeed
     }));
   };
 
@@ -117,7 +156,17 @@ export function useSimulation() {
     setHistory([]);
     setState((prev) => ({
       ...initialState,
+      fuel: prev.fuel,
+      fuelMass: prev.fuelMass,
+      dryMass: prev.dryMass,
+      totalMass: prev.totalMass,
+      mass: prev.mass,
+      thrust: prev.thrust,
+      burnRate: prev.burnRate,
+      dragCoefficient: prev.dragCoefficient,
+      thrustCurve: prev.thrustCurve,
       activeScenario: prev.activeScenario, // preserve selected scenario
+      simulationSpeed: prev.simulationSpeed
     }));
   };
 
@@ -141,6 +190,7 @@ export function useSimulation() {
       validationErrors: validation.errors,
       validationWarnings: validation.warnings,
       activeScenario: prev.activeScenario, // preserve selected scenario
+      simulationSpeed: prev.simulationSpeed
     }));
 
     return validation;
@@ -183,6 +233,12 @@ export function useSimulation() {
     }));
   };
 
+  const clearSession = () => {
+    clearSessionFromStorage();
+    resetLogger();
+    setState(initialState);
+  };
+
   return {
     state,
     startCountdown,
@@ -190,6 +246,7 @@ export function useSimulation() {
     applySettings,
     setScenario,
     clearRunHistory,
+    clearSession,
     history: history,
     events: state.events || [],
     runs: getRuns(),

@@ -20,6 +20,7 @@ function App() {
     applySettings,
     setScenario,
     clearRunHistory,
+    clearSession,
     history,
     events,
     runs,
@@ -57,8 +58,12 @@ function App() {
           Export CSV
         </button>
 
-        <button onClick={clearRunHistory}>
+        <button onClick={clearRunHistory} style={{ marginRight: "8px" }}>
           Clear Run History
+        </button>
+
+        <button onClick={clearSession}>
+          Clear Session
         </button>
       </div>
 
