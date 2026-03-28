@@ -6,6 +6,8 @@ import FlightDashboard from "./ui/FlightDashboard";
 import ControlPanel from "./ui/ControlPanel";
 import EventSummary from "./ui/EventSummary";
 import ComparisonDashboard from "./ui/ComparisonDashboard";
+import ScenarioPanel from "./ui/ScenarioPanel";
+import ScenarioResult from "./ui/ScenarioResult";
 import { convertHistoryToCSV, downloadCSV } from "./simulation/export/csvExport";
 import { buildFlightReport } from "./simulation/export/flightReport";
 
@@ -15,10 +17,13 @@ function App() {
     startCountdown,
     resetSimulation,
     applySettings,
+    setScenario,
     clearRunHistory,
     history,
     events,
-    runs
+    runs,
+    activeScenario,
+    scenarioResult
   } = useSimulation();
 
   const analysis = analyzeFlight(history);
@@ -59,6 +64,11 @@ function App() {
         onSelectPreset={applySettings}
       />
 
+      <ScenarioPanel
+        activeScenario={activeScenario}
+        onSelectScenario={setScenario}
+      />
+
       <FlightDashboard
         state={state}
         analysis={analysis}
@@ -69,6 +79,8 @@ function App() {
         report={report}
         events={events}
       />
+
+      <ScenarioResult result={scenarioResult} />
 
       <ComparisonDashboard runs={runs} />
 

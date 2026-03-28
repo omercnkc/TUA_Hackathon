@@ -3,7 +3,16 @@ export function convertHistoryToCSV(history) {
     return "";
   }
 
-  const headers = ["time", "height", "velocity", "acceleration", "fuel", "state"];
+  const headers = [
+    "time",
+    "height",
+    "velocity",
+    "acceleration",
+    "fuel",
+    "fuelMass",
+    "totalMass",
+    "state"
+  ];
 
   const rows = history.map((row) => [
     row.time,
@@ -11,6 +20,8 @@ export function convertHistoryToCSV(history) {
     row.velocity,
     row.acceleration,
     row.fuel,
+    row.fuelMass,
+    row.totalMass,
     row.state || ""
   ]);
 

@@ -9,7 +9,11 @@ export const initialState = {
   acceleration: 0,
 
   fuel: 100,
-  mass: 1000,
+  fuelMass: 100,
+  dryMass: 900,
+  mass: 1000, // backward compatibility
+  totalMass: 1000,
+
   thrust: 15000,
   burnRate: 2,
 
@@ -21,5 +25,8 @@ export const initialState = {
   events: [],
 
   validationErrors: {},
-  validationWarnings: []
+  validationWarnings: [],
+
+  activeScenario: null,
+  scenarioResult: null
 };

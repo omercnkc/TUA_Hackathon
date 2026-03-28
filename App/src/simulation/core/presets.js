@@ -1,7 +1,8 @@
 export const simulationPresets = {
   default: {
     fuel: 100,
-    mass: 1000,
+    fuelMass: 100,
+    dryMass: 900,
     thrust: 15000,
     burnRate: 1,
     dragCoefficient: 0.02
@@ -9,7 +10,8 @@ export const simulationPresets = {
 
   lightRocket: {
     fuel: 80,
-    mass: 700,
+    fuelMass: 80,
+    dryMass: 620,
     thrust: 14000,
     burnRate: 1.2,
     dragCoefficient: 0.018
@@ -17,7 +19,8 @@ export const simulationPresets = {
 
   heavyRocket: {
     fuel: 160,
-    mass: 1800,
+    fuelMass: 160,
+    dryMass: 1640,
     thrust: 22000,
     burnRate: 1.6,
     dragCoefficient: 0.03
@@ -25,7 +28,8 @@ export const simulationPresets = {
 
   highThrust: {
     fuel: 120,
-    mass: 1000,
+    fuelMass: 120,
+    dryMass: 880,
     thrust: 26000,
     burnRate: 2.2,
     dragCoefficient: 0.022

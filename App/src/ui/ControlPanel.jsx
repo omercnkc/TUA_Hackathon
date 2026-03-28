@@ -9,7 +9,8 @@ export default function ControlPanel({
 }) {
   const [form, setForm] = useState({
     fuel: state.fuel,
-    mass: state.mass,
+    fuelMass: state.fuelMass,
+    dryMass: state.dryMass,
     thrust: state.thrust,
     burnRate: state.burnRate,
     dragCoefficient: state.dragCoefficient
@@ -67,11 +68,20 @@ export default function ControlPanel({
         </label>
 
         <label>
-          Mass
+          Fuel Mass
           <input
             type="number"
-            value={form.mass}
-            onChange={(e) => handleChange("mass", e.target.value)}
+            value={form.fuelMass}
+            onChange={(e) => handleChange("fuelMass", e.target.value)}
+          />
+        </label>
+
+        <label>
+          Dry Mass
+          <input
+            type="number"
+            value={form.dryMass}
+            onChange={(e) => handleChange("dryMass", e.target.value)}
           />
         </label>
 

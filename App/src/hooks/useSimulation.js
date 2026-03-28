@@ -6,11 +6,12 @@ import { validateSimulationSettings } from "../simulation/utils/validateSimulati
 import { analyzeFlight } from "../simulation/telemetry/analysis";
 import { createRunSnapshot } from "../simulation/comparison/createRunSnapshot";
 import { saveRun, getRuns, resetRuns } from "../simulation/comparison/runStore";
+import { evaluateScenario } from "../simulation/scenario/evaluateScenario";
 
 export function useSimulation() {
   const [state, setState] = useState(initialState);
   const [history, setHistory] = useState([]);
-  const [runCount, setRunCount] = useState(0); // triggers re-render when runs change
+  const [runCount, setRunCount] = useState(0);
 
   const historyTickRef = useRef(0);
   const hasSavedRunRef = useRef(false);
@@ -36,7 +37,7 @@ export function useSimulation() {
     return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
-  // Auto-save run when flight lands
+  // Auto-save run + evaluate scenario when flight lands
   useEffect(() => {
     if (state.state === "landed" && !hasSavedRunRef.current) {
       const currentHistory = getHistory();
@@ -51,9 +52,25 @@ export function useSimulation() {
         });
 
         saveRun(runSnapshot);
+
+        // Evaluate scenario if one is active
+        let scenarioResult = null;
+        if (state.activeScenario) {
+          scenarioResult = evaluateScenario({
+            scenario: state.activeScenario,
+            state,
+            analysis
+          });
+        }
+
+        setState((prev) => ({
+          ...prev,
+          scenarioResult
+        }));
+
         hasSavedRunRef.current = true;
-        setRunCount((c) => c + 1); // trigger re-render
-        setHistory(currentHistory); // final sync
+        setRunCount((c) => c + 1);
+        setHistory(currentHistory);
       }
     }
 
@@ -71,6 +88,7 @@ export function useSimulation() {
       state: "countdown",
       countdown: 5,
       launchStartTime: null,
+      activeScenario: prev.activeScenario, // preserve selected scenario
     }));
   };
 
@@ -78,7 +96,10 @@ export function useSimulation() {
     resetLogger();
     historyTickRef.current = 0;
     setHistory([]);
-    setState(initialState);
+    setState((prev) => ({
+      ...initialState,
+      activeScenario: prev.activeScenario, // preserve selected scenario
+    }));
   };
 
   const applySettings = (settings) => {
@@ -90,15 +111,27 @@ export function useSimulation() {
     setState((prev) => ({
       ...initialState,
       fuel: validation.sanitized.fuel,
-      mass: validation.sanitized.mass,
+      fuelMass: validation.sanitized.fuelMass,
+      dryMass: validation.sanitized.dryMass,
+      totalMass: validation.sanitized.totalMass,
+      mass: validation.sanitized.totalMass,
       thrust: validation.sanitized.thrust,
       burnRate: validation.sanitized.burnRate,
       dragCoefficient: validation.sanitized.dragCoefficient,
       validationErrors: validation.errors,
-      validationWarnings: validation.warnings
+      validationWarnings: validation.warnings,
+      activeScenario: prev.activeScenario, // preserve selected scenario
     }));
 
     return validation;
+  };
+
+  const setScenario = (scenario) => {
+    setState((prev) => ({
+      ...prev,
+      activeScenario: scenario,
+      scenarioResult: null
+    }));
   };
 
   const clearRunHistory = () => {
@@ -111,9 +144,12 @@ export function useSimulation() {
     startCountdown,
     resetSimulation,
     applySettings,
+    setScenario,
     clearRunHistory,
     history: history,
     events: state.events || [],
-    runs: getRuns()
+    runs: getRuns(),
+    activeScenario: state.activeScenario,
+    scenarioResult: state.scenarioResult
   };
 }

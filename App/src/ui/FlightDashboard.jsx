@@ -13,6 +13,9 @@ export default function FlightDashboard({ state, analysis, history }) {
         <div>Velocity: {state.velocity.toFixed(2)} m/s</div>
         <div>Acceleration: {state.acceleration.toFixed(2)} m/s²</div>
         <div>Fuel: {state.fuel.toFixed(2)}</div>
+        <div>Fuel Mass: {state.fuelMass?.toFixed(2) || 0} kg</div>
+        <div>Dry Mass: {state.dryMass?.toFixed(2) || 0} kg</div>
+        <div>Total Mass: {state.totalMass?.toFixed(2) || 0} kg</div>
         <div>Time: {state.time.toFixed(2)} s</div>
       </div>
 
@@ -56,6 +59,14 @@ export default function FlightDashboard({ state, analysis, history }) {
         dataKey="fuel"
         title="Fuel vs Time"
         color="#ff7300"
+        events={state.events}
+      />
+
+      <TelemetryChart
+        data={history}
+        dataKey="totalMass"
+        title="Total Mass vs Time"
+        color="#8884d8"
         events={state.events}
       />
     </div>

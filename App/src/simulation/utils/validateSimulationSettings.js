@@ -9,18 +9,22 @@ function clamp(value, min, max) {
 
 export function validateSimulationSettings(input) {
   const rawFuel = toNumber(input.fuel, 100);
-  const rawMass = toNumber(input.mass, 1000);
+  const rawFuelMass = toNumber(input.fuelMass, 100);
+  const rawDryMass = toNumber(input.dryMass, 900);
   const rawThrust = toNumber(input.thrust, 15000);
   const rawBurnRate = toNumber(input.burnRate, 1);
   const rawDragCoefficient = toNumber(input.dragCoefficient, 0.02);
 
   const sanitized = {
     fuel: clamp(rawFuel, 0, 10000),
-    mass: clamp(rawMass, 1, 100000),
+    fuelMass: clamp(rawFuelMass, 0, 100000),
+    dryMass: clamp(rawDryMass, 1, 100000),
     thrust: clamp(rawThrust, 0, 1000000),
     burnRate: clamp(rawBurnRate, 0.01, 1000),
     dragCoefficient: clamp(rawDragCoefficient, 0, 10)
   };
+
+  const totalMass = sanitized.dryMass + sanitized.fuelMass;
 
   const errors = {};
   const warnings = [];
@@ -29,8 +33,12 @@ export function validateSimulationSettings(input) {
     errors.fuel = `Fuel değeri ${sanitized.fuel} olarak düzeltildi.`;
   }
 
-  if (rawMass !== sanitized.mass) {
-    errors.mass = `Mass değeri ${sanitized.mass} olarak düzeltildi.`;
+  if (rawFuelMass !== sanitized.fuelMass) {
+    errors.fuelMass = `Fuel Mass değeri ${sanitized.fuelMass} olarak düzeltildi.`;
+  }
+
+  if (rawDryMass !== sanitized.dryMass) {
+    errors.dryMass = `Dry Mass değeri ${sanitized.dryMass} olarak düzeltildi.`;
   }
 
   if (rawThrust !== sanitized.thrust) {
@@ -53,13 +61,16 @@ export function validateSimulationSettings(input) {
     warnings.push("Burn rate fuel değerinden çok yüksek, yakıt çok hızlı bitebilir.");
   }
 
-  if (sanitized.mass > 50000 && sanitized.thrust < 10000) {
-    warnings.push("Mass çok yüksek ve thrust düşük, roket kalkmayabilir.");
+  if (totalMass > 50000 && sanitized.thrust < 10000) {
+    warnings.push("Total mass is very high and thrust is low. Lift-off may fail.");
   }
 
   return {
     isValid: Object.keys(errors).length === 0,
-    sanitized,
+    sanitized: {
+      ...sanitized,
+      totalMass
+    },
     errors,
     warnings
   };
