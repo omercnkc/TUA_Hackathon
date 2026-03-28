@@ -39,11 +39,20 @@ export default function UIPanel({
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between',
-      padding: '30px',
+      padding: '40px',
       boxSizing: 'border-box',
-      fontFamily: '"SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-      color: 'white'
+      fontFamily: '"Geist Mono", "SF Mono", "Consolas", monospace', // Monospace font for HUD feel
+      color: '#e0f7fa',
+      // Sci-Fi HUD vignette
+      background: 'radial-gradient(circle at center, transparent 60%, rgba(0, 5, 10, 0.4) 100%)'
     }}>
+      
+      {/* Sci-Fi Corner Borders */}
+      <div style={{ position: 'absolute', top: 20, left: 20, width: 40, height: 40, borderTop: '2px solid #00e5ff', borderLeft: '2px solid #00e5ff', opacity: 0.7 }}></div>
+      <div style={{ position: 'absolute', top: 20, right: 20, width: 40, height: 40, borderTop: '2px solid #00e5ff', borderRight: '2px solid #00e5ff', opacity: 0.7 }}></div>
+      <div style={{ position: 'absolute', bottom: 20, left: 20, width: 40, height: 40, borderBottom: '2px solid #00e5ff', borderLeft: '2px solid #00e5ff', opacity: 0.7 }}></div>
+      <div style={{ position: 'absolute', bottom: 20, right: 20, width: 40, height: 40, borderBottom: '2px solid #00e5ff', borderRight: '2px solid #00e5ff', opacity: 0.7 }}></div>
+
       {/* Top Header */}
       <header ref={headerRef} style={{
         display: 'flex',
@@ -51,24 +60,25 @@ export default function UIPanel({
         alignItems: 'center',
       }}>
         <div style={{
-          background: 'rgba(20, 25, 40, 0.65)',
-          backdropFilter: 'blur(12px)',
+          background: 'rgba(0, 20, 30, 0.6)',
+          backdropFilter: 'blur(8px)',
           padding: '15px 30px',
-          borderRadius: '16px',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-          boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)'
+          border: '1px solid rgba(0, 229, 255, 0.3)',
+          borderLeft: '4px solid #00e5ff',
+          display: 'flex',
+          flexDirection: 'column'
         }}>
-          <h1 style={{ margin: 0, fontSize: '24px', letterSpacing: '2px', fontWeight: 600 }}>TUA LAUNCH COMMAND</h1>
-          <p style={{ margin: '5px 0 0 0', opacity: 0.7, fontSize: '14px', letterSpacing: '1px' }}>SPACE BASE ALPHA</p>
+          <h1 style={{ margin: 0, fontSize: '22px', letterSpacing: '4px', fontWeight: 600, color: '#00e5ff', textShadow: '0 0 10px rgba(0,229,255,0.5)' }}>TACTICAL LAUNCH COMMAND</h1>
+          <p style={{ margin: '5px 0 0 0', opacity: 0.8, fontSize: '12px', letterSpacing: '2px' }}>SYS.OP: BASE ALPHA // ONLINE</p>
         </div>
 
         {/* Status Indicator */}
         <div style={{
-          background: 'rgba(20, 25, 40, 0.65)',
-          backdropFilter: 'blur(12px)',
+          background: 'rgba(0, 20, 30, 0.6)',
+          backdropFilter: 'blur(8px)',
           padding: '15px 30px',
-          borderRadius: '16px',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
+          border: '1px solid rgba(0, 229, 255, 0.3)',
+          borderRight: '4px solid #00e5ff',
           display: 'flex',
           alignItems: 'center',
           gap: '15px'
@@ -87,16 +97,21 @@ export default function UIPanel({
       {/* Telemetry Dashboard (Developer 2 will connect this) */}
       <div ref={dashboardRef} style={{
         alignSelf: 'flex-start',
-        background: 'rgba(10, 15, 30, 0.8)',
-        backdropFilter: 'blur(16px)',
-        padding: '25px',
-        borderRadius: '20px',
-        border: '1px solid rgba(255, 255, 255, 0.15)',
-        width: '320px',
-        boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)',
-        pointerEvents: 'auto'
+        background: 'rgba(0, 15, 20, 0.7)',
+        backdropFilter: 'blur(10px)',
+        padding: '30px',
+        border: '1px solid rgba(0, 229, 255, 0.2)',
+        borderLeft: '4px solid #00e5ff',
+        width: '350px',
+        boxShadow: '0 0 30px rgba(0, 229, 255, 0.1)',
+        pointerEvents: 'auto',
+        position: 'relative'
       }}>
-        <h2 style={{ margin: '0 0 20px 0', fontSize: '18px', opacity: 0.9, letterSpacing: '1px', textTransform: 'uppercase', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px' }}>
+        {/* Decorative HUD Elements */}
+        <div style={{ position: 'absolute', top: 5, right: 10, fontSize: '10px', opacity: 0.5, letterSpacing: '2px' }}>DATA_STREAM_ACTIVE</div>
+        <div style={{ position: 'absolute', bottom: -1, right: -1, width: 20, height: 20, borderBottom: '2px solid #00e5ff', borderRight: '2px solid #00e5ff' }}></div>
+
+        <h2 style={{ margin: '0 0 25px 0', fontSize: '16px', color: '#00e5ff', letterSpacing: '3px', textTransform: 'uppercase', borderBottom: '1px dashed rgba(0,229,255,0.3)', paddingBottom: '15px' }}>
           Real-Time Telemetry
         </h2>
 
@@ -122,25 +137,25 @@ export default function UIPanel({
         </div>
 
         {/* Developer Override Controls */}
-        <div style={{ display: 'flex', gap: '10px' }}>
+        <div style={{ display: 'flex', gap: '15px', marginTop: '10px' }}>
           <button 
             onClick={onLaunchTest}
             style={{
               flex: 1,
-              padding: '15px 0',
-              background: 'linear-gradient(135deg, #ff4400 0%, #cc3300 100%)',
-              border: 'none',
-              borderRadius: '12px',
-              color: 'white',
-              fontSize: '16px',
+              padding: '12px 0',
+              background: 'rgba(0, 229, 255, 0.1)',
+              border: '1px solid #00e5ff',
+              color: '#00e5ff',
+              fontSize: '14px',
               fontWeight: 'bold',
-              letterSpacing: '1px',
+              letterSpacing: '2px',
               cursor: 'pointer',
-              boxShadow: '0 4px 15px rgba(255, 68, 0, 0.4)',
+              textShadow: '0 0 8px rgba(0,229,255,0.5)',
+              boxShadow: 'inset 0 0 10px rgba(0,229,255,0.2), 0 0 10px rgba(0,229,255,0.2)',
               transition: 'all 0.2s',
             }}
-            onMouseOver={(e) => e.target.style.transform = 'translateY(-2px)'}
-            onMouseOut={(e) => e.target.style.transform = 'translateY(0)'}
+            onMouseOver={(e) => { e.target.style.background = '#00e5ff'; e.target.style.color = '#000'; }}
+            onMouseOut={(e) => { e.target.style.background = 'rgba(0, 229, 255, 0.1)'; e.target.style.color = '#00e5ff'; }}
           >
             IGNITION
           </button>
@@ -148,19 +163,18 @@ export default function UIPanel({
             onClick={onReset}
             style={{
               flex: 1,
-              padding: '15px 0',
-              background: 'rgba(255, 255, 255, 0.1)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              borderRadius: '12px',
-              color: 'white',
-              fontSize: '16px',
+              padding: '12px 0',
+              background: 'rgba(255, 51, 51, 0.05)',
+              border: '1px solid rgba(255, 51, 51, 0.4)',
+              color: '#ff3333',
+              fontSize: '14px',
               fontWeight: 'bold',
-              letterSpacing: '1px',
+              letterSpacing: '2px',
               cursor: 'pointer',
               transition: 'all 0.2s',
             }}
-            onMouseOver={(e) => e.target.style.background = 'rgba(255, 255, 255, 0.2)'}
-            onMouseOut={(e) => e.target.style.background = 'rgba(255, 255, 255, 0.1)'}
+            onMouseOver={(e) => { e.target.style.background = '#ff3333'; e.target.style.color = '#000'; }}
+            onMouseOut={(e) => { e.target.style.background = 'rgba(255, 51, 51, 0.05)'; e.target.style.color = '#ff3333'; }}
           >
             ABORT
           </button>

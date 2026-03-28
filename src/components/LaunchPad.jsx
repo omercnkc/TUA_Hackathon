@@ -1,85 +1,48 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import { useGLTF } from '@react-three/drei';
+
+// Modeli ön belleklemek (preload) render hızını inanılmaz artırır
+useGLTF.preload('/models/launcher.glb');
+
+function LaunchPadGLB() {
+  // Sisteme yeni aktardığımız Mobile Launcher modelini okuyoruz
+  const { scene } = useGLTF('/models/launcher.glb');
+  
+  // ÖNEMLİ: Roketi yerleştirdiğiniz Mobile Launcher kulesinin 
+  // tam ortaya (roketin etrafına) oturması için bu 'scale', 'position' ve 'rotation' değerlerini 
+  // duruma göre değiştirmeniz gerekebilir. 
+  
+  // Örn: Eğer kule çok küçük görünüyorsa scale={[10, 10, 10]} yapabilirsiniz.
+  // Veya roket kule tellerine çarpıyorsa position={[0, -2, 0]} ile biraz itebilirsiniz.
+  return <primitive object={scene} scale={[1, 1, 1]} position={[0, 0, 0]} />;
+}
+
+// Model indirilirken / işlenirken ekranda boşluk gözükmemesi için devasa gri bir beton zemin
+function FallbackLaunchPad() {
+  return (
+    <group position={[0, -3, 0]}>
+      <mesh>
+        <boxGeometry args={[50, 4, 50]} />
+        <meshStandardMaterial color="#333333" roughness={1.0} />
+      </mesh>
+      {/* Devam ediyor yükleniyor anlamında yanıp sönen küçük bir gösterge */}
+      <mesh position={[0, 3, 0]}>
+        <cylinderGeometry args={[2, 2, 0.5, 32]} />
+        <meshStandardMaterial color="#ffcc00" emissive="#ffcc00" emissiveIntensity={0.5} />
+      </mesh>
+    </group>
+  );
+}
 
 export default function LaunchPad(props) {
   return (
     <group {...props}>
-      {/* ==================================
-          Mobile Launcher Platform (MLP) Base 
-          ================================== */}
-      <mesh position={[0, -2, 0]}>
-        {/* A massive concrete-like platform */}
-        <boxGeometry args={[25, 4, 20]} />
-        <meshStandardMaterial color="#4a4a4a" roughness={0.9} />
-      </mesh>
-      
-      {/* Ground (Crawlerway/Concrete Pad below MLP) */}
-      <mesh position={[0, -4.5, 0]}>
-        <boxGeometry args={[80, 1, 80]} />
-        <meshStandardMaterial color="#222222" roughness={1.0} />
-      </mesh>
-
-      {/* Flame Trench Cutout Effect (darker section on base) */}
-      <mesh position={[0, 0.05, -1]}>
-        <boxGeometry args={[8, 0.1, 10]} />
-        <meshStandardMaterial color="#111111" roughness={1.0} />
-      </mesh>
-
-      {/* ==================================
-          Fixed Service Structure (FSS) Tower 
-          ================================== */}
-      {/* We position it slightly to the left and back to clear the Shuttle */}
-      <group position={[-6, 15, -6]}>
-        {/* Main Steel Pillar */}
-        <mesh position={[0, 0, 0]}>
-          <boxGeometry args={[4, 30, 4]} />
-          {/* Space Launch Red color for towers */}
-          <meshStandardMaterial color="#b23a3a" roughness={0.7} metalness={0.6} />
-        </mesh>
-        
-        {/* Elevator/Stairs Shaft */}
-        <mesh position={[2, 0, 0]}>
-          <boxGeometry args={[2, 30, 3]} />
-          <meshStandardMaterial color="#2d2d2d" roughness={0.8} />
-        </mesh>
-
-        {/* Crane at the top */}
-        <mesh position={[4, 16.5, 0]} rotation={[0, 0, -Math.PI/12]}>
-          <boxGeometry args={[15, 0.5, 0.5]} />
-          <meshStandardMaterial color="#ffcc00" roughness={0.5} metalness={0.8} />
-        </mesh>
-        
-        {/* Access Arms extending towards the Rocket */}
-        {/* Crew Access Arm */}
-        <mesh position={[4.5, 10, 2]}>
-          <boxGeometry args={[5, 0.8, 1.5]} />
-          <meshStandardMaterial color="#cccccc" roughness={0.6} />
-        </mesh>
-         
-        {/* Hydrogen Vent Arm (Beanie Cap) */}
-        <mesh position={[4.5, 13, 1]}>
-           <boxGeometry args={[5, 0.5, 1]} />
-           <meshStandardMaterial color="#cccccc" roughness={0.6} />
-        </mesh>
-      </group>
-
-      {/* ==================================
-          Lightning Rods / Lighting Masts
-          ================================== */}
-      <group position={[10, 8, -8]}>
-         <mesh><cylinderGeometry args={[0.2, 0.3, 20]} /><meshStandardMaterial color="#aaaaaa" /></mesh>
-      </group>
-      <group position={[-10, 8, 8]}>
-         <mesh><cylinderGeometry args={[0.2, 0.3, 20]} /><meshStandardMaterial color="#aaaaaa" /></mesh>
-      </group>
-      <group position={[10, 8, 8]}>
-         <mesh><cylinderGeometry args={[0.2, 0.3, 20]} /><meshStandardMaterial color="#aaaaaa" /></mesh>
-      </group>
-      
-      {/* RSS (Rotating Service Structure) Placeholder (retracted) */}
-      <mesh position={[-10, 10, -10]}>
-        <boxGeometry args={[8, 20, 6]} />
-        <meshStandardMaterial color="#888888" roughness={0.6} metalness={0.5} />
-      </mesh>
+      {/* Suspense React'ta asenkron olan (örnek: GLB model) componentleri bekletir 
+          ve inene kadar ekrana fallback (yedek) olanı basar.
+      */}
+      <Suspense fallback={<FallbackLaunchPad />}>
+        <LaunchPadGLB />
+      </Suspense>
     </group>
   );
 }
