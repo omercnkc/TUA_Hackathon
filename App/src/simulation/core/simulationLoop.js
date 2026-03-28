@@ -1,5 +1,5 @@
 // src/simulation/core/simulationLoop.js
-import { DT } from "./constants";
+import { DT as DEFAULT_DT } from "./constants";
 import { calculateGravity } from "../physics/gravity";
 import { calculateDrag, calculateAirDensity } from "../physics/drag";
 import { calculateAcceleration } from "../physics/acceleration";
@@ -13,7 +13,7 @@ import { detectEvents } from "../events/eventDetector";
 
 const MAX_HEIGHT = 100_000; // 100 km — Karman line
 
-export function stepSimulation(state) {
+export function stepSimulation(state, dt = DEFAULT_DT) {
   const prevState = { ...state };
   let newState = { ...state };
 
@@ -27,8 +27,8 @@ export function stepSimulation(state) {
     case "countdown":
       newState.currentThrust = 0;
       newState.thrustPhase = "idle";
-      newState.countdown -= DT;
-      newState.time += DT;
+      newState.countdown -= dt;
+      newState.time += dt;
       if (newState.countdown <= 0) {
         newState.countdown = 0;
         newState.state = "launch";
@@ -37,8 +37,8 @@ export function stepSimulation(state) {
       break;
 
     case "launch": {
-      const fuel = updateFuel(newState.fuel, newState.burnRate, DT);
-      const fuelMass = updateFuelMass(newState.fuelMass, newState.burnRate, DT);
+      const fuel = updateFuel(newState.fuel, newState.burnRate, dt);
+      const fuelMass = updateFuelMass(newState.fuelMass, newState.burnRate, dt);
       const totalMass = calculateTotalMass(newState.dryMass, fuelMass);
 
       const currentAirDensity = calculateAirDensity(newState.height);
@@ -63,10 +63,10 @@ export function stepSimulation(state) {
         newState.velocity = 0;
         newState.acceleration = 0; 
       } else {
-        newState.velocity = updateVelocity(newState.velocity, acceleration, DT);
+        newState.velocity = updateVelocity(newState.velocity, acceleration, dt);
       }
 
-      const rawHeight = updatePosition(newState.height, newState.velocity, DT);
+      const rawHeight = updatePosition(newState.height, newState.velocity, dt);
       newState.height = Math.max(0, rawHeight > MAX_HEIGHT ? MAX_HEIGHT : rawHeight);
       
       newState.fuel = fuel;
@@ -76,10 +76,8 @@ export function stepSimulation(state) {
       newState.acceleration = acceleration;
       newState.currentThrust = thrust;
       newState.thrustPhase = thrustState.phase;
-      newState.time += DT;
+      newState.time += dt;
 
-      // Only transition to burnout if fuel is gone OR motor profile explicitly ended (e.g. tail-off finished)
-      // Removed the 'thrust <= 0' check because it breaks the start of ramp-up.
       if (newState.fuel <= 0 || thrustState.phase === "burnout") {
         newState.fuel = Math.max(0, newState.fuel);
         newState.state = "burnout";
@@ -97,8 +95,8 @@ export function stepSimulation(state) {
       
       const acceleration = calculateAcceleration(0, gravity, drag, totalMass);
 
-      newState.velocity = updateVelocity(newState.velocity, acceleration, DT);
-      const h = updatePosition(newState.height, newState.velocity, DT);
+      newState.velocity = updateVelocity(newState.velocity, acceleration, dt);
+      const h = updatePosition(newState.height, newState.velocity, dt);
       
       newState.height = h > 0 ? h : 0;
       newState.totalMass = totalMass;
@@ -106,10 +104,8 @@ export function stepSimulation(state) {
       newState.acceleration = acceleration;
       newState.currentThrust = 0;
       newState.thrustPhase = "burnout";
-      newState.time += DT;
+      newState.time += dt;
 
-      // Ensure we don't land at the very start of burnout if burnout starts at t=0 (ramp up issue)
-      // but only if we have been in burnout/falling for a moment or height was significant
       if (newState.height <= 0 && newState.velocity <= 0) {
         newState.state = "landed";
       }

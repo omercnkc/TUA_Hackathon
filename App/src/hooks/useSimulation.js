@@ -17,12 +17,32 @@ export function useSimulation() {
   const hasSavedRunRef = useRef(false);
   const HISTORY_UPDATE_EVERY = 30;
 
-  // Main simulation loop
+  // Main simulation loop with control layer (pause, speed, single-step)
   useEffect(() => {
     let animationFrameId;
 
     const loop = () => {
-      setState((prev) => stepSimulation(prev));
+      setState((prev) => {
+        const effectiveDt = 0.016 * (prev.simulationSpeed || 1);
+
+        if (prev.isPaused) {
+          if (prev.stepRequested) {
+            const steppedState = stepSimulation(
+              { ...prev, stepRequested: false },
+              effectiveDt
+            );
+
+            return {
+              ...steppedState,
+              stepRequested: false
+            };
+          }
+
+          return prev;
+        }
+
+        return stepSimulation(prev, effectiveDt);
+      });
 
       historyTickRef.current += 1;
       if (historyTickRef.current % HISTORY_UPDATE_EVERY === 0) {
@@ -53,7 +73,6 @@ export function useSimulation() {
 
         saveRun(runSnapshot);
 
-        // Evaluate scenario if one is active
         let scenarioResult = null;
         if (state.activeScenario) {
           scenarioResult = evaluateScenario({
@@ -140,6 +159,30 @@ export function useSimulation() {
     setRunCount(0);
   };
 
+  const pauseSimulation = () => {
+    setState((prev) => ({ ...prev, isPaused: true }));
+  };
+
+  const resumeSimulation = () => {
+    setState((prev) => ({ ...prev, isPaused: false }));
+  };
+
+  const togglePause = () => {
+    setState((prev) => ({ ...prev, isPaused: !prev.isPaused }));
+  };
+
+  const setSimulationSpeed = (speed) => {
+    setState((prev) => ({ ...prev, simulationSpeed: speed }));
+  };
+
+  const stepOnce = () => {
+    setState((prev) => ({
+      ...prev,
+      stepRequested: true,
+      isPaused: true
+    }));
+  };
+
   return {
     state,
     startCountdown,
@@ -151,6 +194,11 @@ export function useSimulation() {
     events: state.events || [],
     runs: getRuns(),
     activeScenario: state.activeScenario,
-    scenarioResult: state.scenarioResult
+    scenarioResult: state.scenarioResult,
+    pauseSimulation,
+    resumeSimulation,
+    togglePause,
+    setSimulationSpeed,
+    stepOnce
   };
 }

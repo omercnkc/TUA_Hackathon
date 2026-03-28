@@ -37,5 +37,9 @@ export const initialState = {
     steadyDuration: 6,
     tailOffDuration: 2,
     peakThrustMultiplier: 1
-  }
+  },
+
+  isPaused: false,
+  simulationSpeed: 1,
+  stepRequested: false
 };

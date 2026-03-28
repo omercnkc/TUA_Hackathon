@@ -19,6 +19,8 @@ export default function FlightDashboard({ state, analysis, history }) {
         <div>Current Thrust: {state.currentThrust?.toFixed(2) || 0} N</div>
         <div>Thrust Phase: {state.thrustPhase}</div>
         <div>Time: {state.time.toFixed(2)} s</div>
+        <div>Paused: {state.isPaused ? "Yes" : "No"}</div>
+        <div>Simulation Speed: {state.simulationSpeed}x</div>
       </div>
 
       {analysis && (

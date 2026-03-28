@@ -8,6 +8,7 @@ import EventSummary from "./ui/EventSummary";
 import ComparisonDashboard from "./ui/ComparisonDashboard";
 import ScenarioPanel from "./ui/ScenarioPanel";
 import ScenarioResult from "./ui/ScenarioResult";
+import SimulationControls from "./ui/SimulationControls";
 import { convertHistoryToCSV, downloadCSV } from "./simulation/export/csvExport";
 import { buildFlightReport } from "./simulation/export/flightReport";
 
@@ -23,7 +24,10 @@ function App() {
     events,
     runs,
     activeScenario,
-    scenarioResult
+    scenarioResult,
+    togglePause,
+    setSimulationSpeed,
+    stepOnce
   } = useSimulation();
 
   const analysis = analyzeFlight(history);
@@ -64,6 +68,14 @@ function App() {
         onSelectPreset={applySettings}
       />
 
+      <SimulationControls
+        isPaused={state.isPaused}
+        simulationSpeed={state.simulationSpeed}
+        onTogglePause={togglePause}
+        onStepOnce={stepOnce}
+        onChangeSpeed={setSimulationSpeed}
+      />
+
       <ScenarioPanel
         activeScenario={activeScenario}
         onSelectScenario={setScenario}
@@ -73,6 +85,7 @@ function App() {
         state={state}
         analysis={analysis}
         history={history}
+        events={events} // passing events explicitly just in case
       />
 
       <EventSummary
