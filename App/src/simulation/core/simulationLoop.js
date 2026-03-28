@@ -11,7 +11,7 @@ import { updateVelocity } from "../physics/velocity";
 import { updatePosition } from "../physics/position";
 import { updateFuel } from "../systems/fuelSystem";
 import { calculateThrust } from "../systems/thurustSystem";
-import { logState } from "../telemery/dataLogger";
+import { logState, getHistory } from "../telemetry/dataLogger";
 
 const MAX_HEIGHT = 100_000; // 100 km — Kármán çizgisi
 

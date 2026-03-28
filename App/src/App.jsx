@@ -1,10 +1,17 @@
 import Scene from "./components/Scene";
 import { useSimulation } from "./hooks/useSimulation";
-import { analyzeFlight } from "./simulation/telemery/analysis";
+import { analyzeFlight } from "./simulation/telemetry/analysis";
 import FlightDashboard from "./ui/FlightDashboard";
+import ControlPanel from "./ui/ControlPanel";
 
 function App() {
-  const { state, startCountdown, resetSimulation, history } = useSimulation();
+  const {
+    state,
+    startCountdown,
+    resetSimulation,
+    applySettings,
+    history
+  } = useSimulation();
 
   const analysis = analyzeFlight(history);
 
@@ -17,6 +24,12 @@ function App() {
 
         <button onClick={resetSimulation}>Reset</button>
       </div>
+
+      <ControlPanel
+        state={state}
+        onApplySettings={applySettings}
+        onSelectPreset={applySettings}
+      />
 
       <FlightDashboard
         state={state}
