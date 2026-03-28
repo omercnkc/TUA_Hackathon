@@ -15,8 +15,7 @@ export default function ControlPanel({
     dragCoefficient: state.dragCoefficient
   });
 
-
-
+  const [validationResult, setValidationResult] = useState(null);
 
   const handleChange = (key, value) => {
     setForm((prev) => ({
@@ -26,7 +25,8 @@ export default function ControlPanel({
   };
 
   const handleApply = () => {
-    onApplySettings(form);
+    const result = onApplySettings(form);
+    setValidationResult(result);
   };
 
   const handlePresetChange = (e) => {
@@ -35,7 +35,8 @@ export default function ControlPanel({
     if (!preset) return;
 
     setForm(preset);
-    onSelectPreset(preset);
+    const result = onSelectPreset(preset);
+    setValidationResult(result);
   };
 
   return (
@@ -107,6 +108,31 @@ export default function ControlPanel({
       <button onClick={handleApply} style={{ marginTop: "12px" }}>
         Apply Settings
       </button>
+
+      {validationResult && (
+        <div style={{ marginTop: "16px" }}>
+          <h3>Validation</h3>
+
+          {Object.keys(validationResult.errors).length > 0 ? (
+            <div style={{ color: "#ff6b6b" }}>
+              {Object.entries(validationResult.errors).map(([key, message]) => (
+                <div key={key}>⚠️ {message}</div>
+              ))}
+            </div>
+          ) : (
+            <div style={{ color: "#51cf66" }}>✅ No correction needed.</div>
+          )}
+
+          {validationResult.warnings?.length > 0 && (
+            <div style={{ marginTop: "8px", color: "#fcc419" }}>
+              <h4>Warnings</h4>
+              {validationResult.warnings.map((warning, index) => (
+                <div key={index}>⚠️ {warning}</div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

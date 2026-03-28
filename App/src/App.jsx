@@ -5,6 +5,7 @@ import { analyzeFlight } from "./simulation/telemetry/analysis";
 import FlightDashboard from "./ui/FlightDashboard";
 import ControlPanel from "./ui/ControlPanel";
 import EventSummary from "./ui/EventSummary";
+import ComparisonDashboard from "./ui/ComparisonDashboard";
 import { convertHistoryToCSV, downloadCSV } from "./simulation/export/csvExport";
 import { buildFlightReport } from "./simulation/export/flightReport";
 
@@ -14,8 +15,10 @@ function App() {
     startCountdown,
     resetSimulation,
     applySettings,
+    clearRunHistory,
     history,
-    events
+    events,
+    runs
   } = useSimulation();
 
   const analysis = analyzeFlight(history);
@@ -41,8 +44,12 @@ function App() {
           Reset
         </button>
 
-        <button onClick={handleExportCSV}>
+        <button onClick={handleExportCSV} style={{ marginRight: "8px" }}>
           Export CSV
+        </button>
+
+        <button onClick={clearRunHistory}>
+          Clear Run History
         </button>
       </div>
 
@@ -62,6 +69,8 @@ function App() {
         report={report}
         events={events}
       />
+
+      <ComparisonDashboard runs={runs} />
 
       <div style={{ height: "600px" }}>
         <Scene height={state.height} />
