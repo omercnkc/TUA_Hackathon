@@ -1,42 +1,59 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Sky, Environment, OrbitControls, Stars } from '@react-three/drei';
+import { gsap } from 'gsap';
+import { Environment, OrbitControls, Stars } from '@react-three/drei';
+import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import * as THREE from 'three';
 
 import Rocket from './components/Rocket';
 import LaunchPad from './components/LaunchPad';
 import UIPanel from './components/UIPanel';
 
-// Camera tracking component that follows the rocket's height
-function TrackingCamera({ targetHeight, isFixed }) {
+// Camera tracking component that lets you ROTATE the camera while it auto-tracks the height!
+function TrackingCamera({ targetHeight, isLaunched }) {
+  const controlsRef = useRef();
+  const shakeObj = useRef({ val: 0 }); // Shake intensity
   const { camera } = useThree();
   
   // Set initial camera position on mount
   useEffect(() => {
-    camera.position.set(15, 5, 15);
+    camera.position.set(30, 15, 30);
   }, [camera]);
 
-  useFrame(() => {
-    if (isFixed) return; // Allow OrbitControls manually if preferred
+  // GSAP animation for liftoff shake
+  useEffect(() => {
+    if (isLaunched && targetHeight < 200) {
+      gsap.to(shakeObj.current, { val: 0.3, duration: 1, ease: 'power2.out' });
+    } else {
+      gsap.to(shakeObj.current, { val: 0, duration: 3, ease: 'power2.inOut' });
+    }
+  }, [isLaunched, targetHeight]);
 
-    // Default camera offset from rocket
+  useFrame(() => {
+    if (!controlsRef.current) return;
+
+    // Follow the rocket's Y position while keeping the user's manual rotation intact!
     const targetY = targetHeight + 5;
+    controlsRef.current.target.lerp(new THREE.Vector3(0, targetY, 0), 0.1);
     
-    // Smoothly follow the rocket
-    const currentPosition = camera.position.clone();
-    const desiredPosition = new THREE.Vector3(15, targetY, 15);
-    
-    camera.position.lerp(desiredPosition, 0.05);
-    
-    // Always look at the rocket
-    const lookAtTarget = new THREE.Vector3(0, targetHeight + 2, 0);
-    camera.lookAt(lookAtTarget);
+    // Apply camera shake safely on top of OrbitControls
+    if (shakeObj.current.val > 0) {
+      const shakeX = (Math.random() - 0.5) * shakeObj.current.val;
+      const shakeY = (Math.random() - 0.5) * shakeObj.current.val;
+      const shakeZ = (Math.random() - 0.5) * shakeObj.current.val;
+      camera.position.x += shakeX;
+      camera.position.y += shakeY;
+      camera.position.z += shakeZ;
+    }
+
+    controlsRef.current.update();
   });
   
-  return null;
+  // Setup OrbitControls that prevents going under the ground
+  return <OrbitControls ref={controlsRef} maxPolarAngle={Math.PI / 2 - 0.01} minDistance={15} maxDistance={200} enableDamping dampingFactor={0.05} />;
 }
 
-// A mock simulation isolated from the visuals to showcase the Go/No-Go behavior
+// Mock simulation isolated from visuals
 function useMockSimulation() {
   const [height, setHeight] = useState(0);
   const [isLaunched, setIsLaunched] = useState(false);
@@ -46,7 +63,7 @@ function useMockSimulation() {
     
     let velocity = 0;
     const interval = setInterval(() => {
-      velocity += 0.01; // Acceleration
+      velocity += 0.05; // Acceleration
       setHeight(prev => prev + velocity);
     }, 16); // roughly 60fps
 
@@ -67,11 +84,6 @@ export default function App() {
 
   return (
     <>
-      {/* 
-        This handles the aesthetics and layout.
-        Developer 2 will connect this component to their store/context 
-        to feed actual real-time calculated values. 
-      */}
       <UIPanel 
         height={height}
         velocity={velocity}
@@ -82,35 +94,37 @@ export default function App() {
         onReset={() => { setIsLaunched(false); setHeight(0); }}
       />
 
-      <Canvas shadows>
-        {/* SCENE LIGHTING */}
-        <ambientLight intensity={0.4} />
+      <Canvas shadows camera={{ fov: 45, position: [30, 15, 30] }}>
+        {/* SCENE LIGHTING - Optimized to prevent washout */}
+        <color attach="background" args={['#030508']} />
+        <ambientLight intensity={0.4} color="#ffffff" />
         <directionalLight 
-          position={[10, 20, 10]} 
+          position={[50, 50, 20]} 
           intensity={1.5} 
+          color="#ffeedd" 
           castShadow 
           shadow-mapSize={[2048, 2048]} 
+          shadow-bias={-0.0005}
         />
-        <pointLight position={[-10, 5, -10]} intensity={0.5} color="#5588ff" />
+        <pointLight position={[-10, 5, -10]} intensity={0.5} color="#2255ff" />
 
         {/* SKYBOX & ENVIRONMENT */}
-        {/* We use Stars and Sky from Drei to create an atmospheric to space transition */}
-        <Sky distance={450000} sunPosition={[0, 1, 0]} inclination={0} azimuth={0.25} turbidity={Math.max(0, 1 - height/1000)} />
-        <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+        {/* Deep space background with stars */}
+        <Stars radius={100} depth={50} count={8000} factor={4} saturation={0} fade speed={1} />
+        
+        {/* High quality environment map for metallic rocket reflections */}
         <Environment preset="night" />
 
-        {/* CAMERA SYSTEM */}
-        <TrackingCamera targetHeight={height} isFixed={false} />
-        {/* We can uncomment OrbitControls to test manual view */}
-        {/* <OrbitControls /> */}
+        {/* POST PROCESSING FOR "WOW" GLOW -> Tuned so only fire blooms */}
+        <EffectComposer disableNormalPass>
+          <Bloom luminanceThreshold={2.0} mipmapBlur intensity={1.5} />
+        </EffectComposer>
+
+        {/* CAMERA SYSTEM -> Allows user to spin around the scene */}
+        <TrackingCamera targetHeight={height} isLaunched={isLaunched} />
 
         {/* MODELS */}
         <LaunchPad position={[0, 0, 0]} />
-        
-        {/* 
-          This is the single export expected from Developer 1.
-          It receives 'position={height}' as a prop from the parent (Developer 2's Simulation Engine).
-        */}
         <Rocket position={height} />
       </Canvas>
     </>

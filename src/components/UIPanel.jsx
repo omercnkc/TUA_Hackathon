@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 
 // Developer 1 is responsible for the UI panel structure & visuals.
 // Developer 2 will pass telemetry data, countdown, and other logic as props.
@@ -11,6 +12,22 @@ export default function UIPanel({
   onLaunchTest, 
   onReset 
 }) {
+  const dashboardRef = useRef(null);
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    // Elegant entrance animation sequence with GSAP
+    gsap.fromTo(headerRef.current,
+      { y: -50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.2, ease: 'power4.out' }
+    );
+
+    gsap.fromTo(dashboardRef.current.children,
+      { x: -50, opacity: 0 },
+      { x: 0, opacity: 1, duration: 1, stagger: 0.15, ease: 'power3.out', delay: 0.3 }
+    );
+  }, []);
+
   return (
     <div style={{
       position: 'absolute',
@@ -28,7 +45,7 @@ export default function UIPanel({
       color: 'white'
     }}>
       {/* Top Header */}
-      <header style={{
+      <header ref={headerRef} style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -68,7 +85,7 @@ export default function UIPanel({
       </header>
 
       {/* Telemetry Dashboard (Developer 2 will connect this) */}
-      <div style={{
+      <div ref={dashboardRef} style={{
         alignSelf: 'flex-start',
         background: 'rgba(10, 15, 30, 0.8)',
         backdropFilter: 'blur(16px)',
