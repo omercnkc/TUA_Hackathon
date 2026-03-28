@@ -41,6 +41,10 @@ export default function ComparisonDashboard({ runs }) {
     );
   }
 
+  const prevScore = previousRun.scenarioResult?.score ?? 0;
+  const currScore = currentRun.scenarioResult?.score ?? 0;
+  const scoreDiff = currScore - prevScore;
+
   return (
     <div style={{ marginTop: "16px", padding: "16px", border: "1px solid #ccc" }}>
       <h3>Run Comparison ({runs.length} runs total)</h3>
@@ -51,7 +55,8 @@ export default function ComparisonDashboard({ runs }) {
           <div style={{ fontSize: "11px", color: "#888" }}>{previousRun.createdAt}</div>
           <div>Height: {previousRun.analysis?.maxHeight?.toFixed(2) ?? "—"} m</div>
           <div>Velocity: {previousRun.analysis?.maxVelocity?.toFixed(2) ?? "—"} m/s</div>
-          <div>Time: {previousRun.analysis?.flightTime?.toFixed(2) ?? "—"} s</div>
+          <div>Rating: <span style={{fontWeight: "bold"}}>{previousRun.scenarioResult?.rating ?? "—"}</span></div>
+          <div>Score: {prevScore.toFixed(1)}</div>
         </div>
 
         <div>
@@ -59,15 +64,16 @@ export default function ComparisonDashboard({ runs }) {
           <div style={{ fontSize: "11px", color: "#888" }}>{currentRun.createdAt}</div>
           <div>Height: {currentRun.analysis?.maxHeight?.toFixed(2) ?? "—"} m</div>
           <div>Velocity: {currentRun.analysis?.maxVelocity?.toFixed(2) ?? "—"} m/s</div>
-          <div>Time: {currentRun.analysis?.flightTime?.toFixed(2) ?? "—"} s</div>
+          <div>Rating: <span style={{fontWeight: "bold"}}>{currentRun.scenarioResult?.rating ?? "—"}</span></div>
+          <div>Score: {currScore.toFixed(1)}</div>
         </div>
       </div>
 
       <div style={{ marginTop: "12px" }}>
-        <h4>Differences</h4>
+        <h4>Performance Metrics</h4>
         <div>Max Height: {formatDiff(comparison.maxHeightDiff, "m")}</div>
         <div>Max Velocity: {formatDiff(comparison.maxVelocityDiff, "m/s")}</div>
-        <div>Flight Time: {formatDiff(comparison.flightTimeDiff, "s")}</div>
+        <div>Score Diff: {formatDiff(scoreDiff, "pts")}</div>
       </div>
 
       <ComparisonChart

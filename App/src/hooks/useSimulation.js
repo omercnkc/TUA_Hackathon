@@ -93,15 +93,7 @@ export function useSimulation() {
       const analysis = analyzeFlight(currentHistory);
 
       if (analysis) {
-        const runSnapshot = createRunSnapshot({
-          state,
-          history: currentHistory,
-          events: state.events || [],
-          analysis
-        });
-
-        saveRun(runSnapshot);
-
+        // 1. Calculate scenario result first
         let scenarioResult = null;
         if (state.activeScenario) {
           scenarioResult = evaluateScenario({
@@ -111,6 +103,21 @@ export function useSimulation() {
           });
         }
 
+        // 2. Create snapshot including the result
+        const runSnapshot = createRunSnapshot({
+          state: {
+            ...state,
+            scenarioResult
+          },
+          history: currentHistory,
+          events: state.events || [],
+          analysis
+        });
+
+        // 3. Save to run store
+        saveRun(runSnapshot);
+
+        // 4. Update UI state
         setState((prev) => ({
           ...prev,
           scenarioResult

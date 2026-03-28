@@ -1,3 +1,5 @@
+import { scoreMission } from "./scoreMission";
+
 export function evaluateScenario({ scenario, state, analysis }) {
   if (!scenario || !analysis) return null;
 
@@ -11,11 +13,11 @@ export function evaluateScenario({ scenario, state, analysis }) {
   if (scenario.targetAltitude !== undefined) {
     if (analysis.maxHeight >= scenario.targetAltitude) {
       result.reasons.push(
-        `✅ Target altitude reached: ${analysis.maxHeight.toFixed(2)} m`
+        `Target altitude reached: ${analysis.maxHeight.toFixed(2)} m`
       );
     } else {
       result.reasons.push(
-        `❌ Target altitude not reached. Max height: ${analysis.maxHeight.toFixed(2)} m (target: ${scenario.targetAltitude} m)`
+        `Target altitude not reached. Max height: ${analysis.maxHeight.toFixed(2)} m`
       );
     }
   }
@@ -23,11 +25,11 @@ export function evaluateScenario({ scenario, state, analysis }) {
   if (scenario.minimumMass !== undefined) {
     if (state.mass >= scenario.minimumMass) {
       result.reasons.push(
-        `✅ Payload mass condition satisfied: ${state.mass.toFixed(2)} kg`
+        `Payload mass condition satisfied: ${state.mass.toFixed(2)} kg`
       );
     } else {
       result.reasons.push(
-        `❌ Payload mass too low. Current mass: ${state.mass.toFixed(2)} kg (minimum: ${scenario.minimumMass} kg)`
+        `Payload mass too low. Current mass: ${state.mass.toFixed(2)} kg`
       );
     }
   }
@@ -35,11 +37,11 @@ export function evaluateScenario({ scenario, state, analysis }) {
   if (scenario.minimumRemainingFuel !== undefined) {
     if (state.fuel >= scenario.minimumRemainingFuel) {
       result.reasons.push(
-        `✅ Fuel efficiency condition satisfied. Remaining fuel: ${state.fuel.toFixed(2)}`
+        `Fuel efficiency condition satisfied. Remaining fuel: ${state.fuel.toFixed(2)}`
       );
     } else {
       result.reasons.push(
-        `❌ Remaining fuel too low: ${state.fuel.toFixed(2)} (minimum: ${scenario.minimumRemainingFuel})`
+        `Remaining fuel too low: ${state.fuel.toFixed(2)}`
       );
     }
   }
@@ -57,6 +59,16 @@ export function evaluateScenario({ scenario, state, analysis }) {
     state.fuel >= scenario.minimumRemainingFuel;
 
   result.success = altitudeOk && massOk && fuelOk;
+
+  const scoring = scoreMission({
+    scenario,
+    state,
+    analysis
+  });
+
+  result.score = scoring?.overallScore ?? 0;
+  result.rating = scoring?.rating ?? "D";
+  result.breakdown = scoring?.breakdown ?? null;
 
   return result;
 }
