@@ -17,6 +17,8 @@ export function logState(state) {
     fuel:         parseFloat(state.fuel.toFixed(2)),
     fuelMass:     parseFloat(state.fuelMass?.toFixed(2) || 0),
     totalMass:    parseFloat(state.totalMass?.toFixed(2) || 0),
+    currentThrust: parseFloat(state.currentThrust?.toFixed(2) || 0),
+    thrustPhase:  state.thrustPhase || "idle",
     state:        state.state || "",
   });
 }

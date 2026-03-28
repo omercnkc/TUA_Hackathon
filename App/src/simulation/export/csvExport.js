@@ -11,6 +11,8 @@ export function convertHistoryToCSV(history) {
     "fuel",
     "fuelMass",
     "totalMass",
+    "currentThrust",
+    "thrustPhase",
     "state"
   ];
 
@@ -22,6 +24,8 @@ export function convertHistoryToCSV(history) {
     row.fuel,
     row.fuelMass,
     row.totalMass,
+    row.currentThrust,
+    row.thrustPhase,
     row.state || ""
   ]);
 

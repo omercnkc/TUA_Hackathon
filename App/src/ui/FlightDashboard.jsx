@@ -16,6 +16,8 @@ export default function FlightDashboard({ state, analysis, history }) {
         <div>Fuel Mass: {state.fuelMass?.toFixed(2) || 0} kg</div>
         <div>Dry Mass: {state.dryMass?.toFixed(2) || 0} kg</div>
         <div>Total Mass: {state.totalMass?.toFixed(2) || 0} kg</div>
+        <div>Current Thrust: {state.currentThrust?.toFixed(2) || 0} N</div>
+        <div>Thrust Phase: {state.thrustPhase}</div>
         <div>Time: {state.time.toFixed(2)} s</div>
       </div>
 
@@ -67,6 +69,14 @@ export default function FlightDashboard({ state, analysis, history }) {
         dataKey="totalMass"
         title="Total Mass vs Time"
         color="#8884d8"
+        events={state.events}
+      />
+
+      <TelemetryChart
+        data={history}
+        dataKey="currentThrust"
+        title="Thrust vs Time"
+        color="#ffc658"
         events={state.events}
       />
     </div>

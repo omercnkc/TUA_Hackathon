@@ -7,6 +7,8 @@ export function collectTelemetry(state) {
     fuelMass: state.fuelMass,
     dryMass: state.dryMass,
     totalMass: state.totalMass,
+    currentThrust: state.currentThrust,
+    thrustPhase: state.thrustPhase,
     time: state.time,
     maxHeight: state.maxHeight,
     impactVelocity: state.impactVelocity,

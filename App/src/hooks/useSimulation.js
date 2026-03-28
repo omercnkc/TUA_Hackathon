@@ -118,6 +118,7 @@ export function useSimulation() {
       thrust: validation.sanitized.thrust,
       burnRate: validation.sanitized.burnRate,
       dragCoefficient: validation.sanitized.dragCoefficient,
+      thrustCurve: validation.sanitized.thrustCurve,
       validationErrors: validation.errors,
       validationWarnings: validation.warnings,
       activeScenario: prev.activeScenario, // preserve selected scenario

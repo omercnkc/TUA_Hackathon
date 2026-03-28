@@ -15,13 +15,24 @@ export function validateSimulationSettings(input) {
   const rawBurnRate = toNumber(input.burnRate, 1);
   const rawDragCoefficient = toNumber(input.dragCoefficient, 0.02);
 
+  const rawRampUpDuration = toNumber(input.thrustCurve?.rampUpDuration, 2);
+  const rawSteadyDuration = toNumber(input.thrustCurve?.steadyDuration, 6);
+  const rawTailOffDuration = toNumber(input.thrustCurve?.tailOffDuration, 2);
+  const rawPeakThrustMultiplier = toNumber(input.thrustCurve?.peakThrustMultiplier, 1);
+
   const sanitized = {
     fuel: clamp(rawFuel, 0, 10000),
     fuelMass: clamp(rawFuelMass, 0, 100000),
     dryMass: clamp(rawDryMass, 1, 100000),
     thrust: clamp(rawThrust, 0, 1000000),
     burnRate: clamp(rawBurnRate, 0.01, 1000),
-    dragCoefficient: clamp(rawDragCoefficient, 0, 10)
+    dragCoefficient: clamp(rawDragCoefficient, 0, 10),
+    thrustCurve: {
+      rampUpDuration: clamp(rawRampUpDuration, 0.1, 60),
+      steadyDuration: clamp(rawSteadyDuration, 0.1, 300),
+      tailOffDuration: clamp(rawTailOffDuration, 0.1, 60),
+      peakThrustMultiplier: clamp(rawPeakThrustMultiplier, 0.1, 5)
+    }
   };
 
   const totalMass = sanitized.dryMass + sanitized.fuelMass;
@@ -63,6 +74,10 @@ export function validateSimulationSettings(input) {
 
   if (totalMass > 50000 && sanitized.thrust < 10000) {
     warnings.push("Total mass is very high and thrust is low. Lift-off may fail.");
+  }
+
+  if (sanitized.thrustCurve.peakThrustMultiplier > 2) {
+    warnings.push("Peak thrust multiplier is very high. Flight may become unstable.");
   }
 
   return {

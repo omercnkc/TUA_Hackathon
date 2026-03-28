@@ -28,5 +28,14 @@ export const initialState = {
   validationWarnings: [],
 
   activeScenario: null,
-  scenarioResult: null
+  scenarioResult: null,
+
+  currentThrust: 0,
+  thrustPhase: "idle", // idle | rampUp | steady | tailOff | burnout
+  thrustCurve: {
+    rampUpDuration: 2,
+    steadyDuration: 6,
+    tailOffDuration: 2,
+    peakThrustMultiplier: 1
+  }
 };
