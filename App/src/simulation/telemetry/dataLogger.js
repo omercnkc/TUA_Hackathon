@@ -15,6 +15,7 @@ export function logState(state) {
     velocity:     parseFloat(state.velocity.toFixed(2)),
     acceleration: parseFloat(state.acceleration.toFixed(2)),
     fuel:         parseFloat(state.fuel.toFixed(2)),
+    state:        state.state || "",
   });
 }
 

@@ -1,3 +1,4 @@
+import React from "react";
 import { Canvas } from "@react-three/fiber";
 import { Stars, OrbitControls, Environment, PerspectiveCamera, Cloud } from "@react-three/drei";
 import Rocket from "./Rocket";

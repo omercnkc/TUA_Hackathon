@@ -1,3 +1,5 @@
+import React, { useMemo, useRef } from "react";
+import { useFrame } from "@react-three/fiber";
 import { Box, Cylinder, Cone } from "@react-three/drei";
 
 function Rocket({ height }) {

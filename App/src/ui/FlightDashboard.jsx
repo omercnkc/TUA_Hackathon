@@ -1,3 +1,4 @@
+import React from "react";
 import TelemetryChart from "./TelemetryChart";
 
 export default function FlightDashboard({ state, analysis, history }) {
@@ -39,6 +40,7 @@ export default function FlightDashboard({ state, analysis, history }) {
         data={history}
         dataKey="height"
         title="Height vs Time"
+        events={state.events}
       />
 
       <TelemetryChart
@@ -46,6 +48,7 @@ export default function FlightDashboard({ state, analysis, history }) {
         dataKey="velocity"
         title="Velocity vs Time"
         color="#82ca9d"
+        events={state.events}
       />
 
       <TelemetryChart
@@ -53,6 +56,7 @@ export default function FlightDashboard({ state, analysis, history }) {
         dataKey="fuel"
         title="Fuel vs Time"
         color="#ff7300"
+        events={state.events}
       />
     </div>
   );

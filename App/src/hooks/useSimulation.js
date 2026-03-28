@@ -1,16 +1,27 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { initialState } from "../simulation/core/simulationState";
 import { stepSimulation } from "../simulation/core/simulationLoop";
-import { resetLogger } from "../simulation/telemetry/dataLogger";
+import { resetLogger, getHistory } from "../simulation/telemetry/dataLogger";
 
 export function useSimulation() {
   const [state, setState] = useState(initialState);
+  const [history, setHistory] = useState([]);
+
+  const historyTickRef = useRef(0);
+  const HISTORY_UPDATE_EVERY = 30; // 60fps / 30 = ~2 updates per second
 
   useEffect(() => {
     let animationFrameId;
 
     const loop = () => {
       setState((prev) => stepSimulation(prev));
+
+      // UI/Chart refresh: don't sync history every frame to avoid performance hits
+      historyTickRef.current += 1;
+      if (historyTickRef.current % HISTORY_UPDATE_EVERY === 0) {
+        setHistory(getHistory());
+      }
+
       animationFrameId = requestAnimationFrame(loop);
     };
 
@@ -20,27 +31,28 @@ export function useSimulation() {
   }, []);
 
   const startCountdown = () => {
-    setState((prev) => {
-      if (prev.state !== "idle" && prev.state !== "landed") {
-        return prev;
-      }
-
-      return {
-        ...prev,
-        state: "countdown",
-        countdown: 5
-      };
-    });
+    resetLogger();
+    historyTickRef.current = 0;
+    setHistory([]);
+    setState((prev) => ({
+      ...initialState,
+      state: "countdown",
+      countdown: 5,
+      launchStartTime: null,
+    }));
   };
 
   const resetSimulation = () => {
     resetLogger();
+    historyTickRef.current = 0;
+    setHistory([]);
     setState(initialState);
   };
 
   const applySettings = (settings) => {
     resetLogger();
-
+    historyTickRef.current = 0;
+    setHistory([]);
     setState((prev) => ({
       ...initialState,
       fuel: settings.fuel,
@@ -56,7 +68,7 @@ export function useSimulation() {
     startCountdown,
     resetSimulation,
     applySettings,
-    history: state.history || [],
-    events: state.events || [],
+    history: history,
+    events: state.events || []
   };
 }
