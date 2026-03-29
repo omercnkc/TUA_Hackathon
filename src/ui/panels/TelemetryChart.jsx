@@ -10,14 +10,13 @@ import {
   ReferenceDot
 } from "recharts";
 
-// Helper: Veri içindeki event zamanına en yakın noktayı bulup chart koordinatlarını belirler
 function mapEventsToChartData(data, events, dataKey) {
   if (!data || !events || data.length === 0) return [];
 
   return events
     .map((event) => {
       if (!event.time) return null;
-      
+
       let closestPoint = null;
       let minDiff = Infinity;
 
@@ -47,48 +46,46 @@ export default function TelemetryChart({
   events = [],
   color = "#8884d8"
 }) {
-  const chartEvents = useMemo(() => {
-    return mapEventsToChartData(data, events, dataKey);
-  }, [data, events, dataKey]);
+  const chartEvents = useMemo(() => mapEventsToChartData(data, events, dataKey), [data, events, dataKey]);
 
   if (!data || data.length === 0) {
     return (
-      <div style={{ marginTop: "16px" }}>
-        <h3>{title}</h3>
-        <div style={{ padding: '20px', border: '1px dashed #ccc' }}>No telemetry data yet.</div>
+      <div className="chart-card">
+        <h3 className="chart-title">{title}</h3>
+        <div className="surface-subtitle" style={{ marginBottom: 0 }}>No telemetry data yet.</div>
       </div>
     );
   }
 
   return (
-    <div style={{ marginTop: "16px" }}>
-      <h3>{title}</h3>
+    <div className="chart-card">
+      <h3 className="chart-title">{title}</h3>
       <div style={{ width: "100%", height: 320 }}>
         <ResponsiveContainer>
-          <LineChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
-            <CartesianGrid strokeDasharray="3 3" vertical={false} />
+          <LineChart data={data} margin={{ top: 12, right: 16, left: 0, bottom: 12 }}>
+            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(138,160,194,0.15)" />
             <XAxis
               dataKey="time"
               type="number"
-              domain={['auto', 'auto']}
-              label={{ value: 'Time (s)', position: 'insideBottomRight', offset: -10 }}
+              domain={["auto", "auto"]}
+              stroke="#8aa0c2"
+              label={{ value: "Time (s)", position: "insideBottomRight", offset: -6, fill: "#8aa0c2" }}
             />
             <YAxis
-              label={{ value: dataKey, angle: -90, position: 'insideLeft' }}
+              stroke="#8aa0c2"
+              label={{ value: dataKey, angle: -90, position: "insideLeft", fill: "#8aa0c2" }}
             />
-            <Tooltip 
+            <Tooltip
+              contentStyle={{
+                background: "rgba(11, 22, 36, 0.96)",
+                border: "1px solid rgba(138,160,194,0.16)",
+                borderRadius: "12px",
+                color: "#e5f0ff"
+              }}
               labelFormatter={(value) => `Time: ${value}s`}
-              formatter={(value) => [value.toFixed(2), dataKey]}
+              formatter={(value) => [Number(value).toFixed(2), dataKey]}
             />
-            
-            <Line
-              type="monotone"
-              dataKey={dataKey}
-              stroke={color}
-              dot={false}
-              strokeWidth={2}
-              isAnimationActive={false}
-            />
+            <Line type="monotone" dataKey={dataKey} stroke={color} dot={false} strokeWidth={2.4} isAnimationActive={false} />
 
             {chartEvents.map((ev, idx) => (
               <ReferenceDot
@@ -96,15 +93,15 @@ export default function TelemetryChart({
                 x={ev.time}
                 y={ev.value}
                 r={5}
-                fill="#ff0000"
-                stroke="#fff"
+                fill="#ff5d73"
+                stroke="#ffffff"
                 strokeWidth={2}
-                label={{ 
-                  value: ev.type.toUpperCase(), 
-                  position: 'top', 
-                  fill: '#ff0000', 
+                label={{
+                  value: ev.type.toUpperCase(),
+                  position: "top",
+                  fill: "#ff5d73",
                   fontSize: 10,
-                  fontWeight: 'bold'
+                  fontWeight: "bold"
                 }}
               />
             ))}

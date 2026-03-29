@@ -5,6 +5,8 @@ import RightTelemetryPanel from "./app/layout/RightTelemetryPanel";
 import BottomAnalysisPanel from "./app/layout/BottomAnalysisPanel";
 import TopBar from "./app/layout/TopBar";
 import { useSimulation } from "./engine/hooks/useSimulation";
+import EngineTelemetryDock from "./ui/panels/EngineTelemetryDock";
+import EngineCommandDock from "./ui/panels/EngineCommandDock";
 import "./app/layout/dashboard.css";
 
 function GroundControl({ sim }) {
@@ -28,7 +30,7 @@ function GroundControl({ sim }) {
 function CapsuleHUD({ sim }) {
   return (
     <div style={{ position: 'relative', height: '100vh', width: '100vw', background: '#000', overflow: 'hidden' }}>
-        <SceneViewport sim={sim} />
+        <SceneViewport sim={sim} showOverlay={false} />
         <div style={{ 
           position: 'absolute', 
           top: '20px', 
@@ -50,14 +52,26 @@ function CapsuleHUD({ sim }) {
   );
 }
 
+function EngineHost({ sim }) {
+  return (
+    <div style={{ position: "relative", height: "100vh", width: "100vw", background: "#030712", overflow: "hidden" }}>
+      <SceneViewport sim={sim} showOverlay={false} />
+      <EngineCommandDock sim={sim} />
+      <EngineTelemetryDock sim={sim} />
+    </div>
+  );
+}
+
 export default function App() {
   const sim = useSimulation();
 
-  // Route based on ?mode=hud parameter
-  if (sim.isHUDMode) {
+  if (sim.hostRole === "hud") {
     return <CapsuleHUD sim={sim} />;
   }
 
-  // Default: Mission Control (Master Engine)
+  if (sim.hostRole === "engine") {
+    return <EngineHost sim={sim} />;
+  }
+
   return <GroundControl sim={sim} />;
 }

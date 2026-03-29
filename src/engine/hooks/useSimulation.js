@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { initialState } from "../simulation/core/simulationState";
 import { stepSimulation } from "../simulation/core/simulationLoop";
 import { resetLogger, getHistory } from "../simulation/telemetry/dataLogger";
@@ -15,26 +15,99 @@ import { createSessionSnapshot } from "../simulation/persistence/sessionSnapshot
 import { restoreSessionState } from "../simulation/persistence/restoreSessionState";
 import { validateSimulationSettings } from "../simulation/utils/validateSimulationSettings";
 import { SimulationBridge } from "../simulationBridge";
+import { COMMAND_TYPES, HOST_ROLES, MESSAGE_TYPES } from "../protocol/messages";
+
+const HISTORY_UPDATE_EVERY = 30;
+const SNAPSHOT_STALE_MS = 2500;
+const SNAPSHOT_BROADCAST_INTERVAL_MS = 120;
 
 export function useSimulation() {
-  // Determine if this instance should be a PASSIVE HUD or a MASTER ENGINE
-  const isHUDMode = new URLSearchParams(window.location.search).get("mode") === "hud";
+  const runtime = useMemo(() => SimulationBridge.runtime, []);
+  const hostRole = runtime.hostRole;
+  const isHUDMode = hostRole === HOST_ROLES.HUD;
+  const isEngineAuthority = hostRole === HOST_ROLES.ENGINE;
 
-  const [state, setState] = useState(() => {
-    const savedSession = loadSessionFromStorage();
-    return restoreSessionState(savedSession);
-  });
-  
+  const [state, setState] = useState(() => (
+    isEngineAuthority
+      ? restoreSessionState(loadSessionFromStorage())
+      : { ...initialState }
+  ));
   const [history, setHistory] = useState([]);
-  const [runCount, setRunCount] = useState(0);
+  const [runs, setRuns] = useState(() => (isEngineAuthority ? [...getRuns()] : []));
+  const [connectionStatus, setConnectionStatus] = useState(() => SimulationBridge.getStatus());
+  const [now, setNow] = useState(Date.now());
 
   const historyTickRef = useRef(0);
   const hasSavedRunRef = useRef(false);
-  const HISTORY_UPDATE_EVERY = 30;
+  const lastSnapshotBroadcastAtRef = useRef(0);
 
-  // PHYSICS LOOP (Only runs in MASTER mode)
+  const stateRef = useRef(state);
+  const runsRef = useRef(runs);
+  const actionsRef = useRef({});
+
   useEffect(() => {
-    if (isHUDMode) return; // Passive HUD does not run physics!
+    stateRef.current = state;
+  }, [state]);
+
+  useEffect(() => {
+    runsRef.current = runs;
+  }, [runs]);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  useEffect(() => (
+    SimulationBridge.subscribeStatus((status) => {
+      setConnectionStatus(status);
+    })
+  ), []);
+
+  const publishSnapshot = (
+    nextState = stateRef.current,
+    nextRuns = runsRef.current,
+    force = false
+  ) => {
+    if (!isEngineAuthority) {
+      return;
+    }
+
+    const now = typeof performance !== "undefined" ? performance.now() : Date.now();
+    if (!force && now - lastSnapshotBroadcastAtRef.current < SNAPSHOT_BROADCAST_INTERVAL_MS) {
+      return;
+    }
+
+    lastSnapshotBroadcastAtRef.current = now;
+
+    SimulationBridge.broadcastState({
+      state: nextState,
+      history: getHistory(),
+      runs: nextRuns
+    });
+  };
+
+  useEffect(() => {
+    if (!isEngineAuthority) {
+      return;
+    }
+
+    SimulationBridge.announcePresence();
+    publishSnapshot(state, runs, true);
+  }, [isEngineAuthority]);
+
+  useEffect(() => {
+    publishSnapshot(state, runs);
+  }, [state]);
+
+  useEffect(() => {
+    publishSnapshot(state, runs, true);
+  }, [runs]);
+
+  useEffect(() => {
+    if (!isEngineAuthority) {
+      return;
+    }
 
     let animationFrameId;
 
@@ -53,15 +126,7 @@ export function useSimulation() {
           return prev;
         }
 
-        const nextState = stepSimulation(prev, effectiveDt);
-        
-        // BROADCAST STATE to specific listeners (HUD)
-        SimulationBridge.broadcastState({
-            state: nextState,
-            history: getHistory()
-        });
-
-        return nextState;
+        return stepSimulation(prev, effectiveDt);
       });
 
       historyTickRef.current += 1;
@@ -74,29 +139,63 @@ export function useSimulation() {
 
     loop();
     return () => cancelAnimationFrame(animationFrameId);
-  }, [isHUDMode]);
+  }, [isEngineAuthority]);
 
-  // BRIDGE LISTENER
   useEffect(() => {
     return SimulationBridge.subscribe((message) => {
-      if (message.type === "SYNC_STATE" && isHUDMode) {
-        // Update passive HUD state from the master engine branch
-        setState(message.payload.state);
-        setHistory(message.payload.history);
+      if (message.type === MESSAGE_TYPES.STATE_SNAPSHOT && !isEngineAuthority) {
+        setState(message.payload.state || { ...initialState });
+        setHistory(message.payload.history || []);
+        setRuns(message.payload.runs || []);
+        return;
       }
 
-      if (message.type === "EXECUTE_COMMAND" && !isHUDMode) {
-        // Master engine executes commands from the HUD/Ground control
-        console.log("PROTOCOL: Executing incoming command", message.command);
-        if (message.command === "IGNITION") startCountdown();
-        if (message.command === "ABORT") resetSimulation();
-        if (message.command === "RESET") resetSimulation();
+      if (message.type !== MESSAGE_TYPES.COMMAND || !isEngineAuthority) {
+        return;
+      }
+
+      const { command, payload } = message.payload;
+      const actions = actionsRef.current;
+
+      switch (command) {
+        case COMMAND_TYPES.START_COUNTDOWN:
+          actions.startCountdown?.();
+          break;
+        case COMMAND_TYPES.RESET_SIMULATION:
+          actions.resetSimulation?.();
+          break;
+        case COMMAND_TYPES.APPLY_SETTINGS:
+          actions.applySettings?.(payload);
+          break;
+        case COMMAND_TYPES.SET_SCENARIO:
+          actions.setScenario?.(payload);
+          break;
+        case COMMAND_TYPES.CLEAR_RUN_HISTORY:
+          actions.clearRunHistory?.();
+          break;
+        case COMMAND_TYPES.CLEAR_SESSION:
+          actions.clearSession?.();
+          break;
+        case COMMAND_TYPES.TOGGLE_PAUSE:
+          actions.togglePause?.();
+          break;
+        case COMMAND_TYPES.SET_SIMULATION_SPEED:
+          actions.setSimulationSpeed?.(payload);
+          break;
+        case COMMAND_TYPES.STEP_ONCE:
+          actions.stepOnce?.();
+          break;
+        default:
+          break;
       }
     });
-  }, [isHUDMode]);
+  }, [isEngineAuthority]);
 
   useEffect(() => {
-    if (isHUDMode) return;
+    if (!isEngineAuthority) {
+      return;
+    }
+
     const sessionSnapshot = createSessionSnapshot(state);
     saveSessionToStorage(sessionSnapshot);
   }, [
@@ -111,11 +210,14 @@ export function useSimulation() {
     state.thrustCurve,
     state.activeScenario,
     state.simulationSpeed,
-    isHUDMode
+    isEngineAuthority
   ]);
 
   useEffect(() => {
-    if (isHUDMode) return;
+    if (!isEngineAuthority) {
+      return;
+    }
+
     if (state.state === "landed" && !hasSavedRunRef.current) {
       const currentHistory = getHistory();
       const analysis = analyzeFlight(currentHistory);
@@ -138,9 +240,10 @@ export function useSimulation() {
         });
 
         saveRun(runSnapshot);
+        const nextRuns = [...getRuns()];
+        setRuns(nextRuns);
         setState((prev) => ({ ...prev, scenarioResult }));
         hasSavedRunRef.current = true;
-        setRunCount((c) => c + 1);
         setHistory(currentHistory);
       }
     }
@@ -148,13 +251,14 @@ export function useSimulation() {
     if (state.state === "idle" || state.state === "countdown" || state.state === "launch") {
       hasSavedRunRef.current = false;
     }
-  }, [state.state, isHUDMode]);
+  }, [state, isEngineAuthority]);
 
   const startCountdown = () => {
-    if (isHUDMode) {
-        SimulationBridge.broadcastCommand("IGNITION");
-        return;
+    if (!isEngineAuthority) {
+      SimulationBridge.broadcastCommand(COMMAND_TYPES.START_COUNTDOWN);
+      return;
     }
+
     resetLogger();
     historyTickRef.current = 0;
     setHistory([]);
@@ -178,10 +282,11 @@ export function useSimulation() {
   };
 
   const resetSimulation = () => {
-    if (isHUDMode) {
-        SimulationBridge.broadcastCommand("RESET");
-        return;
+    if (!isEngineAuthority) {
+      SimulationBridge.broadcastCommand(COMMAND_TYPES.RESET_SIMULATION);
+      return;
     }
+
     resetLogger();
     historyTickRef.current = 0;
     setHistory([]);
@@ -202,7 +307,11 @@ export function useSimulation() {
   };
 
   const applySettings = (settings) => {
-    if (isHUDMode) return;
+    if (!isEngineAuthority) {
+      SimulationBridge.broadcastCommand(COMMAND_TYPES.APPLY_SETTINGS, settings);
+      return;
+    }
+
     const validation = validateSimulationSettings(settings);
     resetLogger();
     historyTickRef.current = 0;
@@ -227,39 +336,103 @@ export function useSimulation() {
   };
 
   const setScenario = (scenario) => {
-    if (isHUDMode) return;
+    if (!isEngineAuthority) {
+      SimulationBridge.broadcastCommand(COMMAND_TYPES.SET_SCENARIO, scenario);
+      return;
+    }
+
     setState((prev) => ({ ...prev, activeScenario: scenario, scenarioResult: null }));
   };
 
   const clearRunHistory = () => {
-    if (isHUDMode) return;
+    if (!isEngineAuthority) {
+      SimulationBridge.broadcastCommand(COMMAND_TYPES.CLEAR_RUN_HISTORY);
+      return;
+    }
+
     resetRuns();
-    setRunCount(0);
+    setRuns([]);
   };
 
-  const togglePause = () => !isHUDMode && setState((prev) => ({ ...prev, isPaused: !prev.isPaused }));
-  const setSimulationSpeed = (speed) => !isHUDMode && setState((prev) => ({ ...prev, simulationSpeed: speed }));
-  const stepOnce = () => !isHUDMode && setState((prev) => ({ ...prev, stepRequested: true, isPaused: true }));
+  const togglePause = () => {
+    if (!isEngineAuthority) {
+      SimulationBridge.broadcastCommand(COMMAND_TYPES.TOGGLE_PAUSE);
+      return;
+    }
+
+    setState((prev) => ({ ...prev, isPaused: !prev.isPaused }));
+  };
+
+  const setSimulationSpeed = (speed) => {
+    if (!isEngineAuthority) {
+      SimulationBridge.broadcastCommand(COMMAND_TYPES.SET_SIMULATION_SPEED, speed);
+      return;
+    }
+
+    setState((prev) => ({ ...prev, simulationSpeed: speed }));
+  };
+
+  const stepOnce = () => {
+    if (!isEngineAuthority) {
+      SimulationBridge.broadcastCommand(COMMAND_TYPES.STEP_ONCE);
+      return;
+    }
+
+    setState((prev) => ({ ...prev, stepRequested: true, isPaused: true }));
+  };
 
   const clearSession = () => {
-    if (isHUDMode) return;
+    if (!isEngineAuthority) {
+      SimulationBridge.broadcastCommand(COMMAND_TYPES.CLEAR_SESSION);
+      return;
+    }
+
     clearSessionFromStorage();
     resetLogger();
-    setState(initialState);
+    setState({ ...initialState });
   };
 
-  return {
-    state,
-    isHUDMode,
+  actionsRef.current = {
     startCountdown,
     resetSimulation,
     applySettings,
     setScenario,
     clearRunHistory,
     clearSession,
-    history: history,
+    togglePause,
+    setSimulationSpeed,
+    stepOnce
+  };
+
+  const engineConnected = isEngineAuthority
+    ? true
+    : Boolean(
+      connectionStatus.connected &&
+      connectionStatus.lastSnapshotAt &&
+      now - connectionStatus.lastSnapshotAt < SNAPSHOT_STALE_MS
+    );
+
+  return {
+    state,
+    isHUDMode,
+    hostRole,
+    transportType: runtime.transportType,
+    relayUrl: runtime.relayUrl,
+    sessionId: runtime.sessionId,
+    connection: {
+      transportConnected: connectionStatus.connected,
+      engineConnected,
+      lastSnapshotAt: connectionStatus.lastSnapshotAt
+    },
+    startCountdown,
+    resetSimulation,
+    applySettings,
+    setScenario,
+    clearRunHistory,
+    clearSession,
+    history,
     events: state.events || [],
-    runs: getRuns(),
+    runs,
     activeScenario: state.activeScenario,
     scenarioResult: state.scenarioResult,
     togglePause,

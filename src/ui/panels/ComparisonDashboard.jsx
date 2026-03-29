@@ -4,39 +4,42 @@ import ComparisonChart from "./ComparisonChart";
 
 function formatDiff(value, unit) {
   const sign = value > 0 ? "+" : "";
-  const color = value > 0 ? "#51cf66" : value < 0 ? "#ff6b6b" : "#aaa";
-  return (
-    <span style={{ color, fontWeight: "bold" }}>
-      {sign}{value.toFixed(2)} {unit}
-    </span>
-  );
+  const color = value > 0 ? "#7ef7b8" : value < 0 ? "#ff8c96" : "#8aa0c2";
+  return <span style={{ color, fontWeight: 700 }}>{sign}{value.toFixed(2)} {unit}</span>;
+}
+
+function formatDate(value) {
+  if (!value) return "Unknown run";
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return value;
+  return parsed.toLocaleString("tr-TR", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit"
+  });
 }
 
 export default function ComparisonDashboard({ runs }) {
   if (!runs || runs.length < 2) {
     return (
-      <div style={{ marginTop: "16px", padding: "16px", border: "1px solid #ccc" }}>
-        <h3>Run Comparison</h3>
-        <div>At least two completed runs are required for comparison.</div>
-        {runs && runs.length === 1 && (
-          <div style={{ marginTop: "8px", color: "#aaa" }}>
-            1 run completed. Complete another flight to see comparison.
-          </div>
-        )}
+      <div className="surface-card">
+        <h3 className="surface-title">Run Comparison</h3>
+        <p className="surface-subtitle">Complete at least two missions to unlock trend comparison cards and charts.</p>
       </div>
     );
   }
 
   const previousRun = runs[runs.length - 2];
   const currentRun = runs[runs.length - 1];
-
   const comparison = compareRuns(previousRun, currentRun);
 
   if (!comparison) {
     return (
-      <div style={{ marginTop: "16px", padding: "16px", border: "1px solid #ccc" }}>
-        <h3>Run Comparison</h3>
-        <div>Comparison data is unavailable.</div>
+      <div className="surface-card">
+        <h3 className="surface-title">Run Comparison</h3>
+        <p className="surface-subtitle">Comparison data is unavailable for the latest pair of missions.</p>
       </div>
     );
   }
@@ -46,49 +49,47 @@ export default function ComparisonDashboard({ runs }) {
   const scoreDiff = currScore - prevScore;
 
   return (
-    <div style={{ marginTop: "16px", padding: "16px", border: "1px solid #ccc" }}>
-      <h3>Run Comparison ({runs.length} runs total)</h3>
+    <div className="surface-card">
+      <h3 className="surface-title">Run Comparison</h3>
+      <p className="surface-subtitle">Side-by-side mission deltas with trend charts for the latest completed flights.</p>
 
-      <div style={{ display: "flex", gap: "32px", marginTop: "12px" }}>
-        <div>
-          <strong>Previous Run</strong>
-          <div style={{ fontSize: "11px", color: "#888" }}>{previousRun.createdAt}</div>
+      <div className="compare-columns">
+        <div className="compare-run-card">
+          <div className="metric-label">Previous Run</div>
+          <div className="compare-run-time">{formatDate(previousRun.createdAt)}</div>
           <div>Height: {previousRun.analysis?.maxHeight?.toFixed(2) ?? "—"} m</div>
           <div>Velocity: {previousRun.analysis?.maxVelocity?.toFixed(2) ?? "—"} m/s</div>
-          <div>Rating: <span style={{fontWeight: "bold"}}>{previousRun.scenarioResult?.rating ?? "—"}</span></div>
+          <div>Rating: {previousRun.scenarioResult?.rating ?? "—"}</div>
           <div>Score: {prevScore.toFixed(1)}</div>
         </div>
 
-        <div>
-          <strong>Current Run</strong>
-          <div style={{ fontSize: "11px", color: "#888" }}>{currentRun.createdAt}</div>
+        <div className="compare-run-card">
+          <div className="metric-label">Current Run</div>
+          <div className="compare-run-time">{formatDate(currentRun.createdAt)}</div>
           <div>Height: {currentRun.analysis?.maxHeight?.toFixed(2) ?? "—"} m</div>
           <div>Velocity: {currentRun.analysis?.maxVelocity?.toFixed(2) ?? "—"} m/s</div>
-          <div>Rating: <span style={{fontWeight: "bold"}}>{currentRun.scenarioResult?.rating ?? "—"}</span></div>
+          <div>Rating: {currentRun.scenarioResult?.rating ?? "—"}</div>
           <div>Score: {currScore.toFixed(1)}</div>
         </div>
       </div>
 
-      <div style={{ marginTop: "12px" }}>
-        <h4>Performance Metrics</h4>
-        <div>Max Height: {formatDiff(comparison.maxHeightDiff, "m")}</div>
-        <div>Max Velocity: {formatDiff(comparison.maxVelocityDiff, "m/s")}</div>
-        <div>Score Diff: {formatDiff(scoreDiff, "pts")}</div>
+      <div className="delta-grid">
+        <div className="delta-card">
+          <span className="metric-label">Max Height Delta</span>
+          <div>{formatDiff(comparison.maxHeightDiff, "m")}</div>
+        </div>
+        <div className="delta-card">
+          <span className="metric-label">Max Velocity Delta</span>
+          <div>{formatDiff(comparison.maxVelocityDiff, "m/s")}</div>
+        </div>
+        <div className="delta-card">
+          <span className="metric-label">Score Delta</span>
+          <div>{formatDiff(scoreDiff, "pts")}</div>
+        </div>
       </div>
 
-      <ComparisonChart
-        runA={previousRun}
-        runB={currentRun}
-        dataKey="height"
-        title="Height Comparison"
-      />
-
-      <ComparisonChart
-        runA={previousRun}
-        runB={currentRun}
-        dataKey="velocity"
-        title="Velocity Comparison"
-      />
+      <ComparisonChart runA={previousRun} runB={currentRun} dataKey="height" title="Height Comparison" />
+      <ComparisonChart runA={previousRun} runB={currentRun} dataKey="velocity" title="Velocity Comparison" />
     </div>
   );
 }

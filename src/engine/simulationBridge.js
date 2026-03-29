@@ -1,41 +1,81 @@
-/**
- * SimulationBridge handles communication between different instances of the application.
- * It uses the native BroadcastChannel API for fast, low-latency sync between tabs/hosts.
- */
+import { getProtocolRuntime } from "./protocol/runtime";
+import {
+  createCommandMessage,
+  createHelloMessage,
+  createSnapshotMessage,
+  isProtocolMessage
+} from "./protocol/messages";
+import { createProtocolTransport } from "./protocol/transports/createProtocolTransport";
 
-const CHANNEL_NAME = "TUA_SIMULATION_PROTOCOL_v1";
-const channel = new BroadcastChannel(CHANNEL_NAME);
+const runtime = getProtocolRuntime();
+const transport = createProtocolTransport(runtime);
+const messageListeners = new Set();
+const statusListeners = new Set();
+
+let currentStatus = {
+  connected: runtime.transportType === "none",
+  transport: runtime.transportType,
+  relayUrl: runtime.relayUrl,
+  lastMessageAt: null,
+  lastSnapshotAt: null
+};
+
+const updateStatus = (patch) => {
+  currentStatus = { ...currentStatus, ...patch };
+  statusListeners.forEach((listener) => listener(currentStatus));
+};
+
+transport.subscribeStatus((status) => {
+  updateStatus(status);
+});
+
+transport.subscribe((message) => {
+  if (!isProtocolMessage(message)) {
+    return;
+  }
+
+  if (message.sessionId !== runtime.sessionId || message.source.id === runtime.instanceId) {
+    return;
+  }
+
+  updateStatus({
+    lastMessageAt: message.timestamp || Date.now(),
+    lastSnapshotAt: message.type === "STATE_SNAPSHOT"
+      ? message.timestamp || Date.now()
+      : currentStatus.lastSnapshotAt
+  });
+
+  messageListeners.forEach((listener) => listener(message));
+});
+
+if (runtime.transportType !== "none") {
+  transport.send(createHelloMessage(runtime));
+}
 
 export const SimulationBridge = {
-  /**
-   * Sends the current simulation state to all other instances.
-   */
-  broadcastState: (state) => {
-    channel.postMessage({
-      type: "SYNC_STATE",
-      payload: state
-    });
+  runtime,
+  subscribe(listener) {
+    messageListeners.add(listener);
+    return () => messageListeners.delete(listener);
   },
-
-  /**
-   * Broadcasts a command (like Ignition or Reset) to the master engine.
-   */
-  broadcastCommand: (cmd, data = null) => {
-    channel.postMessage({
-      type: "EXECUTE_COMMAND",
-      command: cmd,
-      data: data
-    });
+  subscribeStatus(listener) {
+    statusListeners.add(listener);
+    listener(currentStatus);
+    return () => statusListeners.delete(listener);
   },
-
-  /**
-   * Subscribes to messages from other instances.
-   */
-  subscribe: (callback) => {
-    const handler = (event) => {
-      callback(event.data);
-    };
-    channel.addEventListener("message", handler);
-    return () => channel.removeEventListener("message", handler);
+  getStatus() {
+    return currentStatus;
+  },
+  broadcastState(snapshot) {
+    transport.send(createSnapshotMessage(runtime, snapshot));
+  },
+  broadcastCommand(command, payload = null) {
+    transport.send(createCommandMessage(runtime, command, payload));
+  },
+  announcePresence() {
+    transport.send(createHelloMessage(runtime));
+  },
+  close() {
+    transport.close();
   }
 };
