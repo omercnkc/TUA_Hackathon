@@ -21,11 +21,10 @@ def space_bases():
         for i, row in df.iterrows():
             bases.append({
                 "id": int(i),
-                "name": str(row.get('Region', f'Üs {i}')),
-                "country": str(row.get('Country', '')),
+                "name": str(row.get('Country', f'Üs {i}')),
+                "region": str(row.get('Region', '')),
                 "lat": float(row['Latitude']),
                 "lng": float(row['Longitude']),
-                "description": str(row.get('Description', '')),
             })
         return jsonify({"bases": bases})
     except Exception as e:
@@ -77,6 +76,56 @@ def predict():
         return jsonify({"error": str(e)}), 500
 
 
+# Lojistik CSV'deki ülke adı → roket CSV'deki Location son segmenti eşleşmesi
+COUNTRY_ALIAS = {
+    'United States': 'USA',
+    'Kazakhstan':    'Kazakhstan',
+    'Russia':        'Russia',
+    'China':         'China',
+    'France':        'France',
+}
+
+@app.route("/history", methods=["GET"])
+def history():
+    try:
+        site_idx = int(request.args.get("site_idx", 0))
+        log_df   = pd.read_csv('data/uzay_lojistik_final_veri_seti.csv')
+        site     = log_df.iloc[site_idx]
+        country  = str(site.get('Country', ''))
+        loc_key  = COUNTRY_ALIAS.get(country)
+
+        if not loc_key:
+            return jsonify({"no_data": True, "country": country})
+
+        rocket_df = pd.read_csv('data/mission_launches_sized.csv', sep=';', on_bad_lines='skip')
+        rocket_df['loc_country'] = rocket_df['Location'].apply(
+            lambda x: str(x).strip().split(',')[-1].strip()
+        )
+        filtered = rocket_df[rocket_df['loc_country'] == loc_key]
+
+        total = len(filtered)
+        if total == 0:
+            return jsonify({"no_data": True, "country": country})
+
+        counts = filtered['Mission_Status'].value_counts().to_dict()
+        success          = counts.get('Success', 0)
+        failure          = counts.get('Failure', 0)
+        partial_failure  = counts.get('Partial Failure', 0)
+        prelaunch_failure= counts.get('Prelaunch Failure', 0)
+
+        return jsonify({
+            "no_data":             False,
+            "country":             country,
+            "total_launches":      total,
+            "success_rate":        round(success / total * 100, 1),
+            "failure_rate":        round(failure / total * 100, 1),
+            "partial_failure_rate":round(partial_failure / total * 100, 1),
+            "prelaunch_failure_rate": round(prelaunch_failure / total * 100, 1),
+        })
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 if __name__ == "__main__":
-    print("🚀 Flask API başlatıldı: http://localhost:5000")
+    print("Flask API baslatildi: http://localhost:5000")
     app.run(port=5000, debug=True)

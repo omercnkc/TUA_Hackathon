@@ -41,7 +41,7 @@ export function Navbar({ theme, onToggleTheme }) {
 
   return (
     <nav
-      className={`font-headline sticky top-0 z-50 w-full max-w-full tracking-tight antialiased transition-all duration-300 ${shell}
+      className={`font-headline fixed top-0 left-0 right-0 z-[998] w-full tracking-tight antialiased transition-all duration-300 ${shell}
         bg-zinc-950/70 backdrop-blur-xl dark:bg-zinc-950/70 dark:backdrop-blur-xl
         bg-white/90 backdrop-blur-xl`}
     >

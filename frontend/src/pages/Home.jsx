@@ -5,7 +5,8 @@ import { Footer } from '../components/Footer'
 import { LoadingSpinner } from '../components/LoadingSpinner'
 import { Navbar } from '../components/Navbar'
 import { WorldMap } from '../components/WorldMap'
-import { postPredict } from '../services/api'
+import { fetchHistory, postPredict } from '../services/api'
+import { Pie, PieChart, Tooltip } from 'recharts'
 
 /* Animated counter that counts up when scrolled into view */
 function CountUp({ to, decimals = 0, duration = 1400 }) {
@@ -38,6 +39,7 @@ function CountUp({ to, decimals = 0, duration = 1400 }) {
 }
 
 
+
 export function Home({ theme, onToggleTheme }) {
   const location = useLocation()
   const [rocketIdx, setRocketIdx] = useState('0')
@@ -45,6 +47,9 @@ export function Home({ theme, onToggleTheme }) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const [selectedBase, setSelectedBase] = useState(null)
+  const [history, setHistory] = useState([])
+  const [histStats, setHistStats] = useState(null)
+  const [histLoading, setHistLoading] = useState(false)
 
   /* Scroll reveal */
   useEffect(() => {
@@ -78,6 +83,14 @@ export function Home({ theme, onToggleTheme }) {
         site_idx: base.id,
       })
       setResult(data.raw)
+      setHistory(prev => [{
+        id: Date.now(),
+        saha: data.raw['GÖREV_BİLGİLERİ']?.['Fırlatma_Sahas'] ?? base.name,
+        roket: data.raw['GÖREV_BİLGİLERİ']?.['Roket'] ?? '—',
+        durum: data.raw['FIRLATMA_DURUMU'],
+        twr: data.raw['TEKNİK_ANALİZ_RAPORU']?.['TWR_Oranı'],
+        zaman: new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' }),
+      }, ...prev].slice(0, 3))
     } catch {
       setError('Analiz isteği başarısız. Flask API çalışıyor mu kontrol edin.')
     } finally {
@@ -85,10 +98,13 @@ export function Home({ theme, onToggleTheme }) {
     }
   }, [])
 
-  // Haritadan yer seçilince otomatik analiz çalıştır
+  // Haritadan yer seçilince otomatik analiz + tarihsel veri çek
   useEffect(() => {
-    if (!selectedBase || selectedBase.id == null) { setResult(null); return }
+    if (!selectedBase || selectedBase.id == null) { setResult(null); setHistStats(null); return }
     runAnalysis(selectedBase, rocketIdx)
+    setHistStats(null)
+    setHistLoading(true)
+    fetchHistory(selectedBase.id).then(d => { setHistStats(d); setHistLoading(false) }).catch(() => setHistLoading(false))
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedBase?.id])
 
@@ -98,7 +114,7 @@ export function Home({ theme, onToggleTheme }) {
   }
 
   return (
-    <div className="relative min-h-screen bg-background text-on-background overflow-x-hidden">
+    <div className="relative min-h-screen bg-background text-on-background overflow-x-hidden pt-[64px]">
       {/* Ambient background orbs */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden>
         <div className="cosmos-orb-a absolute left-[10%] top-[20%] h-[500px] w-[500px] rounded-full bg-primary/5 blur-[120px]" />
@@ -122,33 +138,8 @@ export function Home({ theme, onToggleTheme }) {
             className="animate-in fade-in slide-in-from-bottom-4 duration-500"
             style={{ animation: 'fadeSlideIn 0.45s cubic-bezier(0.16,1,0.3,1) both' }}
           >
-            {/* Seçili üs başlığı */}
-            <div className="mx-auto max-w-7xl px-6 pt-10">
-              <div className="mb-2 flex items-center gap-3">
-                <span className="h-3 w-3 animate-pulse rounded-full bg-cyan-400" />
-                {selectedBase?.name ? (
-                  <>
-                    <h2 className="font-headline text-xl font-bold text-white">{selectedBase.name}</h2>
-                    <span className="text-sm text-zinc-500">{selectedBase.country}</span>
-                  </>
-                ) : (
-                  <h2 className="font-headline text-xl font-bold text-white">Konum Seçildi</h2>
-                )}
-                <button
-                  onClick={() => setSelectedBase(null)}
-                  className="ml-auto flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1 text-xs text-zinc-400 transition-colors hover:border-cyan-400/40 hover:text-cyan-400"
-                >
-                  <span className="material-symbols-outlined text-sm">close</span>
-                  Seçimi kaldır
-                </button>
-              </div>
-              {selectedBase?.description && (
-                <p className="text-sm text-zinc-500">{selectedBase.description}</p>
-              )}
-            </div>
-
             <div className="mx-auto max-w-7xl space-y-24 px-6 py-12">
-              <section className="grid grid-cols-1 gap-8 md:grid-cols-3">
+              <section className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
                 <div className="reveal reveal-d1 glass-card group rounded-xl p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,207,252,0.1)]">
                   <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-secondary/10 text-secondary transition-transform group-hover:scale-110">
                     <span className="material-symbols-outlined mso-fill">cloud</span>
@@ -187,6 +178,30 @@ export function Home({ theme, onToggleTheme }) {
                   </div>
                   <p className="text-sm text-on-surface-variant">Çevresel etki analizi bölge için kararlı sonuçlar veriyor.</p>
                 </div>
+
+                {/* Ekonomik Verimlilik kartı */}
+                <div className="reveal reveal-d4 glass-card group rounded-xl p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(250,204,21,0.08)]">
+                  <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-yellow-400/10 text-yellow-400 transition-transform group-hover:scale-110">
+                    <span className="material-symbols-outlined mso-fill">attach_money</span>
+                  </div>
+                  <div className="mb-2 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Ekonomik Verimlilik</div>
+                  <div className="mb-2 font-headline text-3xl font-extrabold text-on-surface glow-num">
+                    {result?.['EKONOMİK_ANALİZ']?.['Birim_Maliyet'] != null
+                      ? <>${result['EKONOMİK_ANALİZ']['Birim_Maliyet'].toLocaleString('en-US')}<span className="text-base font-normal opacity-50">/kg</span></>
+                      : <span className="text-2xl text-on-surface-variant opacity-40">—</span>}
+                  </div>
+                  <p className="text-sm text-on-surface-variant">
+                    {result?.['EKONOMİK_ANALİZ']
+                      ? <>
+                          <span className={`font-semibold ${
+                            result['EKONOMİK_ANALİZ']['Verimlilik_Notu'] === 'Yüksek Verimlilik' ? 'text-secondary' :
+                            result['EKONOMİK_ANALİZ']['Verimlilik_Notu'] === 'Orta Verimlilik'  ? 'text-yellow-400' : 'text-error'
+                          }`}>{result['EKONOMİK_ANALİZ']['Verimlilik_Notu']}</span>
+                          {' · '}Toplam: ${result['EKONOMİK_ANALİZ']['Toplam_Tahmini_Butce'].toLocaleString('en-US')}
+                        </>
+                      : 'Simülasyon sonucu bekleniyor.'}
+                  </p>
+                </div>
               </section>
 
               <section id="analiz" className="reveal grid grid-cols-1 items-start gap-8 scroll-mt-28 lg:grid-cols-5">
@@ -201,15 +216,16 @@ export function Home({ theme, onToggleTheme }) {
                       <label className="mb-2 block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
                         Roket İndeksi
                       </label>
-                      <input
+                      <select
                         value={rocketIdx}
                         onChange={(e) => setRocketIdx(e.target.value)}
                         className="w-full rounded-lg bg-surface-container-low px-4 py-3 text-on-surface transition-colors focus:bg-surface-container-high focus:outline-none focus:ring-1 focus:ring-secondary"
-                        placeholder="0"
-                        type="number"
-                        min="0"
                         required
-                      />
+                      >
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                      </select>
                     </div>
                     <div className="rounded-lg bg-surface-container-low px-4 py-3">
                       <span className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Seçili Üs</span>
@@ -336,13 +352,113 @@ export function Home({ theme, onToggleTheme }) {
                 </div>
               </section>
 
+              {/* ── Tarihsel Güvenilirlik ── */}
+              <section className="reveal rounded-xl border border-outline-variant/20 bg-surface-container/50 p-8 backdrop-blur-sm">
+                <div className="mb-6 flex items-center gap-3">
+                  <span className="material-symbols-outlined text-secondary">history</span>
+                  <h2 className="font-headline text-2xl font-bold text-on-surface">Tarihsel Güvenilirlik</h2>
+                </div>
+
+                {histLoading && (
+                  <div className="flex items-center gap-3 text-sm text-on-surface-variant opacity-60">
+                    <LoadingSpinner size="sm" /> Veriler yükleniyor…
+                  </div>
+                )}
+
+                {!histLoading && histStats?.no_data && (
+                  <div className="flex items-start gap-3 rounded-lg bg-surface/40 p-4">
+                    <span className="material-symbols-outlined text-on-surface-variant opacity-40">info</span>
+                    <p className="text-sm text-on-surface-variant">
+                      <span className="font-semibold text-on-surface">{histStats.country}</span> için kayıtlı fırlatma verisi bulunmamaktadır.
+                      Simülasyon anlık fiziksel ve lojistik verilere dayanmaktadır.
+                    </p>
+                  </div>
+                )}
+
+                {!histLoading && histStats && !histStats.no_data && (() => {
+                  const pieData = [
+                    { name: 'Başarılı',           value: histStats.success_rate,           fill: '#bb9eff' },
+                    { name: 'Kısmi Başarısızlık', value: histStats.partial_failure_rate,   fill: '#f59e0b' },
+                    { name: 'Başarısız',          value: histStats.failure_rate,           fill: '#f43f5e' },
+                    { name: 'Fırlatma Öncesi',    value: histStats.prelaunch_failure_rate, fill: '#6b7280' },
+                  ].filter(d => d.value > 0)
+
+                  return (
+                    <div className="flex flex-col items-center gap-8 md:flex-row">
+                      <div className="shrink-0">
+                        <PieChart width={220} height={220}>
+                          <Pie
+                            data={pieData}
+                            cx={105} cy={105}
+                            innerRadius={58} outerRadius={95}
+                            paddingAngle={3}
+                            dataKey="value"
+                            strokeWidth={0}
+                          />
+
+                          <Tooltip
+                            formatter={(v) => [`%${v}`, '']}
+                            contentStyle={{ background: '#0e0e14', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8, fontSize: 12 }}
+                          />
+                        </PieChart>
+                      </div>
+
+                      <div className="flex-1 space-y-4">
+                        <p className="text-sm text-on-surface-variant">
+                          <span className="font-bold text-on-surface">{histStats.country}</span> bölgesinden
+                          {' '}<span className="font-bold text-secondary">{histStats.total_launches}</span> fırlatma kaydı analiz edildi.{' '}
+                          Başarı oranı{' '}
+                          <span className="font-bold text-secondary">%{histStats.success_rate}</span> ile sektör ortalamasının
+                          {histStats.success_rate >= 90 ? ' üzerinde.' : histStats.success_rate >= 75 ? ' yakınında.' : ' altında.'}
+                        </p>
+
+                        <ul className="space-y-2">
+                          {pieData.map(d => (
+                            <li key={d.name} className="flex items-center justify-between rounded-lg bg-surface/40 px-4 py-2.5">
+                              <div className="flex items-center gap-2.5">
+                                <span className="h-2.5 w-2.5 rounded-full shrink-0" style={{ background: d.fill }} />
+                                <span className="text-sm text-on-surface-variant">{d.name}</span>
+                              </div>
+                              <span className="font-headline text-sm font-bold text-on-surface">%{d.value}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )
+                })()}
+              </section>
+
               <section id="gecmis" className="reveal section-scanline scroll-mt-28 rounded-xl border border-outline-variant/20 bg-surface-container/50 p-8 backdrop-blur-sm">
                 <h2 className="font-headline text-2xl font-bold text-on-surface">Geçmiş Denemeler</h2>
-                <ul className="mt-4 space-y-2 text-sm text-on-surface-variant">
-                  <li>Simülasyon #A12 — Kennedy penceresi — Başarılı</li>
-                  <li>Simülasyon #B04 — Guyane yörünge — Başarılı</li>
-                  <li>Simülasyon #C91 — Tanegashima hava — Erteleme</li>
-                </ul>
+                {history.length === 0 ? (
+                  <p className="mt-4 text-sm text-on-surface-variant opacity-50">Henüz simülasyon çalıştırılmadı.</p>
+                ) : (
+                  <ul className="mt-4 space-y-3">
+                    {history.map((h, i) => (
+                      <li key={h.id} className="flex items-center gap-4 rounded-lg bg-surface/40 px-4 py-3">
+                        <span className="text-xs font-bold text-on-surface-variant opacity-40">#{i + 1}</span>
+                        <div className="flex-1 min-w-0">
+                          <p className="truncate text-sm font-semibold text-on-surface">{h.saha}</p>
+                          <p className="truncate text-xs text-on-surface-variant">{h.roket}</p>
+                        </div>
+                        <div className="flex items-center gap-3 shrink-0">
+                          <span className="text-xs text-on-surface-variant">{h.zaman}</span>
+                          {h.twr != null && (
+                            <span className="text-xs text-on-surface-variant">TWR {h.twr}</span>
+                          )}
+                          <span className={`rounded-full border px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
+                            h.durum === 'GO'
+                              ? 'border-secondary/30 bg-secondary/10 text-secondary'
+                              : 'border-error/30 bg-error/10 text-error'
+                          }`}>
+                            {h.durum}
+                          </span>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </section>
             </div>
 

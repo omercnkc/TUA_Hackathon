@@ -18,3 +18,8 @@ export async function postPredict(payload) {
   const { data } = await api.post('/predict', payload)
   return data
 }
+
+export async function fetchHistory(site_idx) {
+  const { data } = await api.get('/history', { params: { site_idx } })
+  return data
+}

@@ -5,6 +5,10 @@ import requests
 G_0 = 9.80665
 ISP_DEFAULT = 311  # Merlin 1D (s)
 
+# Ekonomik referans değerler ($/kg LEO)
+SPACEX_BENCHMARK_KG = 2700   # SpaceX Falcon 9 referansı
+INDUSTRY_BASE_KG    = 5000   # Sektör ortalaması
+
 def clean_rocket_value(val):
     """Birimleri (kN, kg) temizler, kN'yi N'ye çevirir ve sayıya dönüştürür.
     CSV'deki virgül binlik ayraç olarak kullanılıyor (ör: 7,607 kN → 7607 kN).
@@ -92,7 +96,28 @@ def run_simulation(rocket_idx, site_idx):
     if basari_yuzdesi < 0.75:
         reasons.append(f"Düşük Saha Başarı Oranı (%{round(basari_yuzdesi * 100, 1)}): Risk yüksek.")
 
-    # 7. Çıktı
+    # 7. Ekonomik Analiz
+    # Ekvator skoru yüksekse daha az yakıt = daha düşük maliyet (0.6–1.5 arası çarpan)
+    ekvator_carpan  = max(0.6, 1.8 - (ekvator_skoru / 10.0))
+    # Güvenilirlik yüksekse risk primi düşük (0.85–1.3 arası çarpan)
+    guven_carpan    = max(0.85, 1.4 - (guvenilirlik / 10.0))
+    # TWR yüksekse yakıt daha verimli kullanılıyor (0.9–1.2 arası çarpan)
+    twr_carpan      = max(0.9, 1.25 - max(0.0, twr - 1.0) * 0.12)
+
+    birim_maliyet   = round(INDUSTRY_BASE_KG * ekvator_carpan * guven_carpan * twr_carpan)
+
+    # Payload ton cinsinden (display için)
+    payload_kg_val  = payload if payload > 0 else 5000
+    toplam_butce    = round(birim_maliyet * payload_kg_val)
+
+    if birim_maliyet <= SPACEX_BENCHMARK_KG * 1.2:
+        verimlilik_notu = "Yüksek Verimlilik"
+    elif birim_maliyet <= SPACEX_BENCHMARK_KG * 2.2:
+        verimlilik_notu = "Orta Verimlilik"
+    else:
+        verimlilik_notu = "Düşük Verimlilik"
+
+    # 8. Çıktı
     output = {
         "FIRLATMA_DURUMU": "GO" if not reasons else "NO-GO",
         "GÖREV_BİLGİLERİ": {
@@ -120,6 +145,11 @@ def run_simulation(rocket_idx, site_idx):
             "Rüzgar_Hızı": f"{wind} m/s",
         },
         "RİSK_VE_ENGEL_NOTLARI": reasons if reasons else "Güvenli fırlatma koşulları sağlandı.",
+        "EKONOMİK_ANALİZ": {
+            "Birim_Maliyet": birim_maliyet,
+            "Toplam_Tahmini_Butce": toplam_butce,
+            "Verimlilik_Notu": verimlilik_notu,
+        },
     }
 
     return output
