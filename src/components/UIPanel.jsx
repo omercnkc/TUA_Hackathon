@@ -36,6 +36,7 @@ export default function UIPanel({
       width: '100%',
       height: '100%',
       pointerEvents: 'none', // Lets clicks pass through to 3D canvas
+      zIndex: 10,
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between',

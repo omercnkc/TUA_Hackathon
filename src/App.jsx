@@ -1,132 +1,63 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { gsap } from 'gsap';
-import { Environment, OrbitControls, Stars } from '@react-three/drei';
-import { EffectComposer, Bloom } from '@react-three/postprocessing';
-import * as THREE from 'three';
+import React from "react";
+import SceneViewport from "./app/layout/SceneViewport";
+import LeftControlPanel from "./app/layout/LeftControlPanel";
+import RightTelemetryPanel from "./app/layout/RightTelemetryPanel";
+import BottomAnalysisPanel from "./app/layout/BottomAnalysisPanel";
+import TopBar from "./app/layout/TopBar";
+import { useSimulation } from "./engine/hooks/useSimulation";
+import "./app/layout/dashboard.css";
 
-import Rocket from './components/Rocket';
-import LaunchPad from './components/LaunchPad';
-import UIPanel from './components/UIPanel';
-
-// Camera tracking component that lets you ROTATE the camera while it auto-tracks the height!
-function TrackingCamera({ targetHeight, isLaunched }) {
-  const controlsRef = useRef();
-  const shakeObj = useRef({ val: 0 }); // Shake intensity
-  const { camera } = useThree();
-  
-  // Set initial camera position on mount
-  useEffect(() => {
-    camera.position.set(30, 15, 30);
-  }, [camera]);
-
-  // GSAP animation for liftoff shake
-  useEffect(() => {
-    if (isLaunched && targetHeight < 200) {
-      gsap.to(shakeObj.current, { val: 0.3, duration: 1, ease: 'power2.out' });
-    } else {
-      gsap.to(shakeObj.current, { val: 0, duration: 3, ease: 'power2.inOut' });
-    }
-  }, [isLaunched, targetHeight]);
-
-  useFrame(() => {
-    if (!controlsRef.current) return;
-
-    // Follow the rocket's Y position while keeping the user's manual rotation intact!
-    const targetY = targetHeight + 5;
-    controlsRef.current.target.lerp(new THREE.Vector3(0, targetY, 0), 0.1);
-    
-    // Apply camera shake safely on top of OrbitControls
-    if (shakeObj.current.val > 0) {
-      const shakeX = (Math.random() - 0.5) * shakeObj.current.val;
-      const shakeY = (Math.random() - 0.5) * shakeObj.current.val;
-      const shakeZ = (Math.random() - 0.5) * shakeObj.current.val;
-      camera.position.x += shakeX;
-      camera.position.y += shakeY;
-      camera.position.z += shakeZ;
-    }
-
-    controlsRef.current.update();
-  });
-  
-  // Setup OrbitControls that prevents going under the ground
-  return <OrbitControls ref={controlsRef} maxPolarAngle={Math.PI / 2 - 0.01} minDistance={15} maxDistance={200} enableDamping dampingFactor={0.05} />;
+function GroundControl({ sim }) {
+  return (
+    <div className="dash" style={{ display: 'grid', gridTemplateRows: '64px 1fr 280px', height: '100vh', gap: '12px', padding: '12px' }}>
+      <TopBar sim={sim} />
+      <div className="dash-main" style={{ display: 'grid', gridTemplateColumns: 'minmax(300px, 1fr) 1.5fr 340px', gap: '12px' }}>
+        <LeftControlPanel sim={sim} />
+        {/* Minimized Viewport for Ground Control */}
+        <div className="panel" style={{ position: 'relative', overflow: 'hidden' }}>
+            <div style={{ position: 'absolute', top: 10, left: 10, zIndex: 10, fontSize: '10px', color: '#00e5ff', opacity: 0.6 }}>REMOTE_MONITOR_ACTIVE</div>
+            <SceneViewport sim={sim} />
+        </div>
+        <RightTelemetryPanel sim={sim} analysis={sim.analysis} />
+      </div>
+      <BottomAnalysisPanel sim={sim} analysis={sim.analysis} />
+    </div>
+  );
 }
 
-// Mock simulation isolated from visuals
-function useMockSimulation() {
-  const [height, setHeight] = useState(0);
-  const [isLaunched, setIsLaunched] = useState(false);
-
-  useEffect(() => {
-    if (!isLaunched) return;
-    
-    let velocity = 0;
-    const interval = setInterval(() => {
-      velocity += 0.05; // Acceleration
-      setHeight(prev => prev + velocity);
-    }, 16); // roughly 60fps
-
-    return () => clearInterval(interval);
-  }, [isLaunched]);
-
-  return { height, isLaunched, setIsLaunched, setHeight };
+function CapsuleHUD({ sim }) {
+  return (
+    <div style={{ position: 'relative', height: '100vh', width: '100vw', background: '#000', overflow: 'hidden' }}>
+        <SceneViewport sim={sim} />
+        <div style={{ 
+          position: 'absolute', 
+          top: '20px', 
+          left: '50%', 
+          transform: 'translateX(-50%)', 
+          color: '#00e5ff', 
+          background: 'rgba(0,30,40,0.4)',
+          backdropFilter: 'blur(5px)',
+          padding: '5px 20px',
+          border: '1px solid #00e5ff',
+          fontSize: '10px', 
+          fontFamily: 'monospace',
+          letterSpacing: '2px',
+          pointerEvents: 'none'
+        }}>
+            LIVE_LINK_ACTIVE // PRIMARY_UPLINK: CALIBRATED
+        </div>
+    </div>
+  );
 }
 
 export default function App() {
-  const { height, isLaunched, setIsLaunched, setHeight } = useMockSimulation();
-  
-  // Calculate mock velocity and fuel for UI demonstration
-  const status = isLaunched ? (height > 50 ? 'LIFTOFF' : 'ASCENT') : 'PRE-LAUNCH';
-  const velocity = isLaunched ? height / 2 : 0;
-  const fuel = isLaunched ? Math.max(0, 100 - (height / 10)) : 100;
-  const countdown = isLaunched ? 0 : 10;
+  const sim = useSimulation();
 
-  return (
-    <>
-      <UIPanel 
-        height={height}
-        velocity={velocity}
-        fuel={fuel}
-        countdown={countdown}
-        status={status}
-        onLaunchTest={() => setIsLaunched(true)}
-        onReset={() => { setIsLaunched(false); setHeight(0); }}
-      />
+  // Route based on ?mode=hud parameter
+  if (sim.isHUDMode) {
+    return <CapsuleHUD sim={sim} />;
+  }
 
-      <Canvas shadows camera={{ fov: 45, position: [30, 15, 30] }}>
-        {/* SCENE LIGHTING - Optimized to prevent washout */}
-        <color attach="background" args={['#030508']} />
-        <ambientLight intensity={0.4} color="#ffffff" />
-        <directionalLight 
-          position={[50, 50, 20]} 
-          intensity={1.5} 
-          color="#ffeedd" 
-          castShadow 
-          shadow-mapSize={[2048, 2048]} 
-          shadow-bias={-0.0005}
-        />
-        <pointLight position={[-10, 5, -10]} intensity={0.5} color="#2255ff" />
-
-        {/* SKYBOX & ENVIRONMENT */}
-        {/* Deep space background with stars */}
-        <Stars radius={100} depth={50} count={8000} factor={4} saturation={0} fade speed={1} />
-        
-        {/* High quality environment map for metallic rocket reflections */}
-        <Environment preset="night" />
-
-        {/* POST PROCESSING FOR "WOW" GLOW -> Tuned so only fire blooms */}
-        <EffectComposer disableNormalPass>
-          <Bloom luminanceThreshold={2.0} mipmapBlur intensity={1.5} />
-        </EffectComposer>
-
-        {/* CAMERA SYSTEM -> Allows user to spin around the scene */}
-        <TrackingCamera targetHeight={height} isLaunched={isLaunched} />
-
-        {/* MODELS */}
-        <LaunchPad position={[0, 0, 0]} />
-        <Rocket position={height} />
-      </Canvas>
-    </>
-  );
+  // Default: Mission Control (Master Engine)
+  return <GroundControl sim={sim} />;
 }
